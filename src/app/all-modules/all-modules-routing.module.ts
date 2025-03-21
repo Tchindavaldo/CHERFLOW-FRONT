@@ -34,6 +34,16 @@ const routes: Routes = [
 
 
 
+                     {
+                            path: 'evenement',
+                            loadChildren: () =>
+                                   import( './evenement/estimates.module' ).then( ( m ) => m.EstimatesModule ),
+                            canActivate: [ AuthenticationGuard ],
+                     },
+
+
+
+
 
 
 
