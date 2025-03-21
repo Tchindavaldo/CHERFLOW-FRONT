@@ -26,10 +26,11 @@ export class AddEstimatesComponent implements OnInit {
 
     this.addEstimateForm = this.formBuilder.group({
       customerName: ["", [Validators.required]],
-      estimateFrom: ["", [Validators.required]],
-      estimateTo: ["", [Validators.required]],
-      estimateNumber: ["", [Validators.required]],
-      customerRef: ["", [Validators.required]],
+      estimatePrenom: ["", [Validators.required]],
+      estimateAge: ["", [Validators.required]],
+      estimateEmail: ["", [Validators.required]],
+      customerAdresse: ["", [Validators.required]],
+      customerTel: ["", [Validators.required]],
     });
     // Datetimepicker
 
