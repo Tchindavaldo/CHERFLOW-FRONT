@@ -663,7 +663,7 @@ a.bg-primary:focus,
 a.bg-primary:hover,
 button.bg-primary:focus,
 button.bg-primary:hover {
-       background-color: #621aff !important;
+       background-color: #ac373e !important;
 }
 
 .bg-success,
@@ -767,8 +767,8 @@ button.bg-danger:hover {
 .btn-primary.active,
 .btn-primary:active,
 .open>.dropdown-toggle.btn-primary {
-       background-color: #621aff;
-       border: 1px solid #621aff;
+       background-color: #ac373e;
+       border: 1px solid #ac373e;
 }
 
 .btn-primary.active.focus,
@@ -780,15 +780,15 @@ button.bg-danger:hover {
 .open>.dropdown-toggle.btn-primary.focus,
 .open>.dropdown-toggle.btn-primary:focus,
 .open>.dropdown-toggle.btn-primary:hover {
-       background-color: #621aff;
-       border: 1px solid #621aff;
+       background-color: #ac373e;
+       border: 1px solid #ac373e;
 }
 
 .btn-primary.active:not(:disabled):not(.disabled),
 .btn-primary:active:not(:disabled):not(.disabled),
 .show>.btn-primary.dropdown-toggle {
-       background-color: #621aff;
-       border-color: #621aff;
+       background-color: #ac373e;
+       border-color: #ac373e;
        color: #fff;
 }
 
@@ -957,7 +957,7 @@ button.bg-danger:hover {
 }
 
 .badge-secondary {
-       background-color: #621aff !important;
+       background-color: #ac373e !important;
 }
 
 .btn-danger {
@@ -6141,16 +6141,16 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .cd-horizontal-timeline .events a {
        padding-bottom: 6px;
-       color: #621aff;
+       color: #ac373e;
 }
 
 .cd-horizontal-timeline .filling-line,
 .cd-horizontal-timeline .events a.selected::after {
-       background: #621aff;
+       background: #ac373e;
 }
 
 .cd-horizontal-timeline .events a.selected::after {
-       border-color: #621aff;
+       border-color: #ac373e;
 }
 
 .cd-horizontal-timeline .m-t-40 {
@@ -6164,13 +6164,13 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .cd-timeline-navigation a:hover,
 .cd-timeline-navigation a:focus {
-       border-color: #621aff;
+       border-color: #ac373e;
 }
 
 .cd-horizontal-timeline a,
 .cd-horizontal-timeline a:hover,
 .cd-horizontal-timeline a:focus {
-       color: #621aff;
+       color: #ac373e;
 }
 
 .cd-horizontal-timeline blockquote,
@@ -6260,7 +6260,7 @@ div.dataTables_wrapper div.dataTables_filter input {
        top: 0;
        height: 100%;
        width: 100%;
-       background-color: #621aff;
+       background-color: #ac373e;
        -webkit-transform: scaleX(0);
        -moz-transform: scaleX(0);
        -ms-transform: scaleX(0);
@@ -6312,8 +6312,8 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .no-touch .cd-horizontal-timeline .events a:hover::after {
-       background-color: #621aff;
-       border-color: #621aff;
+       background-color: #ac373e;
+       border-color: #ac373e;
 }
 
 .cd-horizontal-timeline .events a.selected {
@@ -6321,12 +6321,12 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .cd-horizontal-timeline .events a.selected::after {
-       background-color: #621aff;
-       border-color: #621aff;
+       background-color: #ac373e;
+       border-color: #ac373e;
 }
 
 .cd-horizontal-timeline .events a.older-event::after {
-       border-color: #621aff;
+       border-color: #ac373e;
 }
 
 .cd-timeline-navigation a {
@@ -7036,7 +7036,7 @@ body[data-layout-mode=dark] .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-o
 }
 
 .sidebar-but:hover {
-       background: #621aff;
+       background: #ac373e;
        color: #fff;
 }
 
