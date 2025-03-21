@@ -3282,11 +3282,12 @@ html.menu-opened body {
 }
 
 .sidebar-menu li a {
-       color: #95979b;
+       color: #29292a;
        display: block;
        font-size: 15px;
        height: auto;
        padding: 0 20px;
+
 }
 
 .sidebar-menu li a:hover {
