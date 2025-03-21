@@ -32,44 +32,15 @@
 
                                                                              <div
                                                                                     class="row">
+                                                                                  
                                                                                     <div
                                                                                            class="col-md-12">
                                                                                            <div
                                                                                                   class="form-group">
-                                                                                                  <label>Customer<span
-                                                                                                                class="mandatory">*</span></label>
-                                                                                                  <select
-                                                                                                         class="form-select"
-                                                                                                         formControlName="customerName">
-                                                                                                         <option>Select
-                                                                                                                Customer</option>
-                                                                                                         <option>Brian
-                                                                                                                Johnson</option>
-                                                                                                         <option>Marie
-                                                                                                                Canales</option>
-                                                                                                         <option>Barbara
-                                                                                                                Moore</option>
-                                                                                                         <option>Greg
-                                                                                                                Lynch</option>
-                                                                                                         <option>Karlene
-                                                                                                                Chaidez</option>
-                                                                                                  </select>
-                                                                                                  <div
-                                                                                                         *ngIf="addEstimateForm.get('customerName')?.invalid && addEstimateForm.get('customerName')?.touched">
-                                                                                                         <small
-                                                                                                                class="text-danger">*Name
-                                                                                                                required</small>
-                                                                                                  </div>
-                                                                                           </div>
-                                                                                    </div>
-                                                                                    <div
-                                                                                           class="col-md-12">
-                                                                                           <div
-                                                                                                  class="form-group">
-                                                                                                  <label>From<span
+                                                                                                  <label>Nom<span
                                                                                                                 class="mandatory">*</span></label>
                                                                                                   <div
-                                                                                                         class="cal-icon">
+                                                                                                        >
                                                                                                          <input
                                                                                                                 type="text"
                                                                                                                 class="form-control"
@@ -78,9 +49,8 @@
                                                                                                          <div
                                                                                                                 *ngIf="addEstimateForm.get('estimateFrom')?.invalid && addEstimateForm.get('estimateFrom')?.touched">
                                                                                                                 <small
-                                                                                                                       class="text-danger">*From
-                                                                                                                       Date
-                                                                                                                       required</small>
+                                                                                                                       class="text-danger">
+                                                                                                                       Nom requis</small>
                                                                                                          </div>
                                                                                                   </div>
                                                                                            </div>
@@ -89,10 +59,10 @@
                                                                                            class="col-md-12">
                                                                                            <div
                                                                                                   class="form-group">
-                                                                                                  <label>To<span
+                                                                                                  <label>Prenom<span
                                                                                                                 class="mandatory">*</span></label>
                                                                                                   <div
-                                                                                                         class="cal-icon">
+                                                                                                         >
                                                                                                          <input
                                                                                                                 type="text"
                                                                                                                 class="form-control"
@@ -101,9 +71,7 @@
                                                                                                          <div
                                                                                                                 *ngIf="addEstimateForm.get('estimateTo')?.invalid && addEstimateForm.get('estimateTo')?.touched">
                                                                                                                 <small
-                                                                                                                       class="text-danger">*To
-                                                                                                                       Date
-                                                                                                                       required</small>
+                                                                                                                       class="text-danger">Prenom requis</small>
                                                                                                          </div>
                                                                                                   </div>
                                                                                            </div>
@@ -112,8 +80,7 @@
                                                                                            class="col-md-12 mt-3">
                                                                                            <div
                                                                                                   class="form-group">
-                                                                                                  <label>Estimate
-                                                                                                         Number<span
+                                                                                                  <label>Age<span
                                                                                                                 class="mandatory">*</span></label>
                                                                                                   <input
                                                                                                          type="text"
@@ -122,32 +89,11 @@
                                                                                                   <div
                                                                                                          *ngIf="addEstimateForm.get('estimateNumber')?.invalid && addEstimateForm.get('estimateNumber')?.touched">
                                                                                                          <small
-                                                                                                                class="text-danger">*Estimate
-                                                                                                                Number
-                                                                                                                required</small>
+                                                                                                                class="text-danger">Age requis</small>
                                                                                                   </div>
                                                                                            </div>
                                                                                     </div>
-                                                                                    <div
-                                                                                           class="col-md-12 mt-3">
-                                                                                           <div
-                                                                                                  class="form-group">
-                                                                                                  <label>Ref
-                                                                                                         Number<span
-                                                                                                                class="mandatory">*</span></label>
-                                                                                                  <input
-                                                                                                         type="text"
-                                                                                                         class="form-control"
-                                                                                                         formControlName="customerRef">
-                                                                                                  <div
-                                                                                                         *ngIf="addEstimateForm.get('customerRef')?.invalid && addEstimateForm.get('customerRef')?.touched">
-                                                                                                         <small
-                                                                                                                class="text-danger">*Ref
-                                                                                                                Number
-                                                                                                                required</small>
-                                                                                                  </div>
-                                                                                           </div>
-                                                                                    </div>
+                                                                                     
                                                                              </div>
 
                                                                       </div>
