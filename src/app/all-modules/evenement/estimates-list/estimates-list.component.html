@@ -5,19 +5,19 @@
                      <div class="row align-items-center">
                             <div class="col">
                                    <h3 class="page-title">Événements</h3>
-                                   <ul class="breadcrumb">
+                                   <!-- <ul class="breadcrumb">
                                           <li class="breadcrumb-item"><a [routerLink]="'/'">Dashboard</a></li>
                                           <li class="breadcrumb-item active">Événements</li>
-                                   </ul>
+                                   </ul> -->
                             </div>
-                            <div class="col-auto">
+                            <!-- <div class="col-auto">
                                    <a [routerLink]="'/evenement/add-estimate'" class="btn btn-primary me-2">
                                           <i class="fas fa-plus"></i> Nouvel Événement
                                    </a>
                                    <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
                                           <i class="fas fa-filter"></i>
                                    </a>
-                            </div>
+                            </div> -->
                      </div>
 
                      <div class="row">
@@ -29,7 +29,7 @@
                                                                <i class="fas fa-church"></i>
                                                         </span>
                                                         <div class="dash-count">
-                                                               <div class="dash-title">Cultes</div>
+                                                               <div class="dash-title">Administratifs</div>
                                                                <div class="dash-counts">
                                                                       <p>42</p>
                                                                </div>
@@ -50,7 +50,7 @@
                                                                <i class="fas fa-praying-hands"></i>
                                                         </span>
                                                         <div class="dash-count">
-                                                               <div class="dash-title">Prières</div>
+                                                               <div class="dash-title">Communautaires</div>
                                                                <div class="dash-counts">
                                                                       <p>36</p>
                                                                </div>
@@ -71,7 +71,7 @@
                                                                <i class="fas fa-bible"></i>
                                                         </span>
                                                         <div class="dash-count">
-                                                               <div class="dash-title">Études Bibliques</div>
+                                                               <div class="dash-title">Litturgique</div>
                                                                <div class="dash-counts">
                                                                       <p>24</p>
                                                                </div>
@@ -92,7 +92,7 @@
                                                                <i class="fas fa-hands-helping"></i>
                                                         </span>
                                                         <div class="dash-count">
-                                                               <div class="dash-title">Actions Sociales</div>
+                                                               <div class="dash-title">Culturels</div>
                                                                <div class="dash-counts">
                                                                       <p>18</p>
                                                                </div>
@@ -168,28 +168,26 @@
                                                  <table datatable class="table table-stripped table-hover">
                                                         <thead class="thead-light">
                                                                <tr>
-                                                                      <th>Référence</th>
-                                                                      <th>Type</th>
-                                                                      <th>Titre</th>
+                                                                      <th>Événements</th>
                                                                       <th>Date</th>
                                                                       <th>Heure</th>
-                                                                      <th>Lieu</th>
-                                                                      <th>Participants</th>
-                                                                      <th>Statut</th>
+                                                                      <th>Visibilité</th>
+                                                                      <th>Status</th>
                                                                       <th class="text-end">Actions</th>
                                                                </tr>
                                                         </thead>
                                                         <tbody>
                                                                <tr *ngFor="let event of events">
                                                                       <td>
-                                                                             <a [routerLink]="'/evenement/view-estimate'">{{ event.reference }}</a>
+                                                                             <a [routerLink]="'/evenement/view-estimate'">{{ event.titre }}</a>
                                                                       </td>
-                                                                      <td>{{ event.type }}</td>
-                                                                      <td>{{ event.titre }}</td>
                                                                       <td>{{ event.date | date: "dd MMM yyyy" }}</td>
                                                                       <td>{{ event.heure }}</td>
-                                                                      <td>{{ event.lieu }}</td>
-                                                                      <td>{{ event.participants }}</td>
+                                                                      <td>
+                                                                             <span [class]="'badge ' + (event.visibility === 'Public' ? 'bg-success-light' : 'bg-warning-light')">
+                                                                                    {{ event.visibility }}
+                                                                             </span>
+                                                                      </td>
                                                                       <td>
                                                                              <span *ngIf="event.status === 'À venir'" class="badge bg-success-light">{{ event.status }}</span>
                                                                              <span *ngIf="event.status === 'En cours'" class="badge bg-info-light">{{ event.status }}</span>
