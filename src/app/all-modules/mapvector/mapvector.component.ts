@@ -18,7 +18,7 @@ export class MapvectorComponent implements OnInit {
     hoverColor : false,
     regionStyle : {
       initial : {
-        fill : '#7638ff'
+        fill : '#E30613'
       }
     },
     backgroundColor : 'transparent'
@@ -31,7 +31,7 @@ export class MapvectorComponent implements OnInit {
     hoverColor : false,
     regionStyle : {
       initial : {
-        fill : '#7638ff'
+        fill : '#E30613'
       }
     },
     backgroundColor : 'transparent'
@@ -41,14 +41,14 @@ export class MapvectorComponent implements OnInit {
     backgroundColor : 'transparent',
     regionStyle : {
       initial : {
-        fill : '#7638ff'
+        fill : '#E30613'
       }
     }
   });
   $('#uk').vectorMap({map: 'uk_countries_mill',backgroundColor: 'transparent',
         regionStyle: {
         initial: {
-          fill: '#7638ff'
+          fill: '#E30613'
         }
         }});
   $('#russia').vectorMap({
@@ -56,7 +56,7 @@ export class MapvectorComponent implements OnInit {
     backgroundColor: 'transparent',
         regionStyle: {
         initial: {
-          fill: '#7638ff'
+          fill: '#E30613'
         }
         }});
   }

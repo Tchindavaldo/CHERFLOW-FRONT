@@ -9,7 +9,7 @@
 		hoverColor : false,
 		regionStyle : {
 			initial : {
-				fill : '#7638ff'
+				fill : '#E30613'
 			}
 		},
 		backgroundColor : 'transparent'
@@ -20,7 +20,7 @@
 		backgroundColor: 'transparent',
 		regionStyle: {
 			initial: {
-				fill: '#7638ff'
+				fill: '#E30613'
 			}
 		}
 	});
@@ -29,14 +29,14 @@
 		backgroundColor : 'transparent',
 		regionStyle : {
 			initial : {
-				fill : '#7638ff'
+				fill : '#E30613'
 			}
 		}
 	});
 	$('#uk').vectorMap({map: 'uk_countries_mill',backgroundColor: 'transparent',
 			  regionStyle: {
 				initial: {
-				  fill: '#7638ff'
+				  fill: '#E30613'
 				}
 			  }});
 	$('#russia').vectorMap({
@@ -44,7 +44,7 @@
 		backgroundColor: 'transparent',
 			  regionStyle: {
 				initial: {
-				  fill: '#7638ff'
+				  fill: '#E30613'
 				}
 			  }});
 

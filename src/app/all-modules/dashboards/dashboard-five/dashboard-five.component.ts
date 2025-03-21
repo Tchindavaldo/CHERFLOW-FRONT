@@ -44,7 +44,7 @@ export class DashboardFiveComponent implements OnInit {
       }
   });
     var options = {
-      colors: ['#7638ff', '#ff737b', '#fda600', '#1ec1b0'],
+      colors: ['#E30613', '#ff737b', '#fda600', '#1ec1b0'],
       series: [55, 40, 20, 10],
       chart: {
         fontFamily: 'Poppins, sans-serif',
@@ -70,7 +70,7 @@ export class DashboardFiveComponent implements OnInit {
     chart.render();
 
     var options1 = {
-      colors: ['#7638ff', '#fda600'],
+      colors: ['#E30613', '#fda600'],
       series: [
         {
         name: "Received",

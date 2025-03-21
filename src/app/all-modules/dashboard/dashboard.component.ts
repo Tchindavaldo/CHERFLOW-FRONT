@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     var options = {
-      colors: ['#7638ff', '#ff737b', '#fda600', '#1ec1b0'],
+      colors: ['#E30613', '#ff737b', '#fda600', '#1ec1b0'],
       series: [55, 40, 20, 10],
       chart: {
         fontFamily: 'Poppins, sans-serif',
@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
     chart.render();
 
     var options1 = {
-      colors: ['#7638ff', '#fda600'],
+      colors: ['#E30613', '#fda600'],
       series: [
         {
         name: "Received",
@@ -107,7 +107,7 @@ export class DashboardComponent implements OnInit {
     // Column chart
     // var columnCtx = document.getElementById("sales_chart"),
     // columnConfig = {
-    //   colors: ['#7638ff', '#fda600'],
+    //   colors: ['#E30613', '#fda600'],
     //   series: [
     //     {
     //     name: "Received",
@@ -168,7 +168,7 @@ export class DashboardComponent implements OnInit {
     // //Pie Chart
     // var pieCtx = document.getElementById("invoice_chart"),
     // pieConfig = {
-    //   colors: ['#7638ff', '#ff737b', '#fda600', '#1ec1b0'],
+    //   colors: ['#E30613', '#ff737b', '#fda600', '#1ec1b0'],
     //   series: [55, 40, 20, 10],
     //   chart: {
     //     fontFamily: 'Poppins, sans-serif',

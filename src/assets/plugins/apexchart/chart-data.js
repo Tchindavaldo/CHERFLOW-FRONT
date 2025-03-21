@@ -21,7 +21,7 @@ $(document).ready(function() {
 	// Column chart
 	var columnCtx = document.getElementById("sales_chart"),
 	columnConfig = {
-		colors: ['#7638ff', '#fda600'],
+		colors: ['#E30613', '#fda600'],
 		series: [
 			{
 			name: "Received",
@@ -82,7 +82,7 @@ $(document).ready(function() {
 	//Pie Chart
 	var pieCtx = document.getElementById("invoice_chart"),
 	pieConfig = {
-		colors: ['#7638ff', '#ff737b', '#fda600', '#1ec1b0'],
+		colors: ['#E30613', '#ff737b', '#fda600', '#1ec1b0'],
 		series: [55, 40, 20, 10],
 		chart: {
 			fontFamily: 'Poppins, sans-serif',
