@@ -4286,6 +4286,7 @@ table.table-inbox tbody tr.checked {
 
 .page-wrapper>.content {
        padding: 1.875rem 1.875rem 0;
+       background: rgb(255 255 255 / 98%);
 }
 
 .page-header {
