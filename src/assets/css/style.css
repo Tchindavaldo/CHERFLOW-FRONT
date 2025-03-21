@@ -5071,6 +5071,7 @@ table.table-inbox tbody tr.checked {
        position: absolute;
        right: 15px;
        top: 10px;
+       display: none;
 }
 
 .profile-cover {
