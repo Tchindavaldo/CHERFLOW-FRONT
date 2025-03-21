@@ -290,6 +290,105 @@
        <div class="sidebar-inner slimscroll">
               <div id="sidebar-menu" class="sidebar-menu">
                      <ul>
+                            <li class="menu-title"><span>Acceuil</span></li>
+                            <li [class.active]="base === 'index'">
+                                   <a [routerLink]="'/index'"><i
+                                                 data-feather="home"></i>
+                                          <span>Dashboard</span></a>
+                            </li>
+
+                            <li>
+                                   <a
+                                          [routerLink]="'/estimates/estimates-list'"><i
+                                                 data-feather="file-text"></i>
+                                          <span>Rendez-vous</span></a>
+                            </li>
+
+                            <li class="menu-title"><span>Membres</span></li>
+                            <li>
+                                   <a [routerLink]="'/index'"><i
+                                                 data-feather="home"></i>
+                                          <span>Nouveau</span></a>
+                            </li>
+
+                            <li>
+                                   <a
+                                          [routerLink]="'/estimates/estimates-list'"><i
+                                                 data-feather="file-text"></i>
+                                          <span>Listes</span></a>
+                            </li>
+
+                            <li class="menu-title"><span>Événements et
+                                          Activités</span></li>
+                            <li>
+                                   <a [routerLink]="'/index'"><i
+                                                 data-feather="home"></i>
+                                          <span>Planifications</span></a>
+                            </li>
+
+                            <li>
+                                   <a
+                                          [routerLink]="'/estimates/estimates-list'"><i
+                                                 data-feather="file-text"></i>
+                                          <span>Listes</span></a>
+                            </li>
+
+                            <li class="menu-title"><span>Finance</span></li>
+                            <li>
+                                   <a [routerLink]="'/index'"><i
+                                                 data-feather="home"></i>
+                                          <span>Suivis</span></a>
+                            </li>
+
+                            <li>
+                                   <a
+                                          [routerLink]="'/estimates/estimates-list'"><i
+                                                 data-feather="file-text"></i>
+                                          <span>Rapport</span></a>
+                            </li>
+
+                            <li class="menu-title"><span>Ressources </span></li>
+                            <li>
+                                   <a [routerLink]="'/index'"><i
+                                                 data-feather="home"></i>
+                                          <span>Inventaire</span></a>
+                            </li>
+
+                            <li>
+                                   <a
+                                          [routerLink]="'/estimates/estimates-list'"><i
+                                                 data-feather="file-text"></i>
+                                          <span>Maintenance</span></a>
+                            </li>
+
+                            <li
+                                   class="menu-title"><span>Communication</span></li>
+                            <li>
+                                   <a [routerLink]="'/index'"><i
+                                                 data-feather="home"></i>
+                                          <span>Bulletins
+                                                 d’informations</span></a>
+                            </li>
+
+                            <li>
+                                   <a
+                                          [routerLink]="'/estimates/estimates-list'"><i
+                                                 data-feather="file-text"></i>
+                                          <span>Annonces</span></a>
+                            </li>
+
+                     </ul>
+              </div>
+       </div>
+</div>
+<!-- /Sidebar -->
+
+<!--  buy template -->
+
+<!-- <div class="sidebar" id="sidebar">
+       <div class="sidebar-inner slimscroll">
+              <div id="sidebar-menu" class="sidebar-menu">
+                     <ul>
                             <li class="menu-title"><span>Main</span></li>
                             <li [class.active]="base === 'index'">
                                    <a [routerLink]="'/index'"><i
@@ -303,6 +402,11 @@
                                                  data-feather="file-text"></i>
                                           <span>Estimates</span></a>
                             </li>
+
+                            <li class="menu-title">
+                                   <span>Pages</span>
+                            </li>
+
                             <li class="submenu"
                                    [class.active]="page === 'invoices'">
                                    <a href="javascript:void(0)"><i
@@ -518,5 +622,6 @@
                      </ul>
               </div>
        </div>
-</div>
-<!-- /Sidebar -->
+</div> -->
+
+<!-- dddd -->
