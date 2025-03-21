@@ -28,19 +28,20 @@
 
                      <div class="row">
                             <div class="col-xl-3 col-sm-6 col-12">
-                                   <div class="card">
+                                   <div class="card card1">
                                           <div class="card-body">
                                                  <div
                                                         class="dash-widget-header">
                                                         <span
-                                                               class="dash-widget-icon bg-1">
-                                                               <i
-                                                                      class="fas fa-dollar-sign"></i>
+                                                               class="dash-widget-icon ">
+                                                               <img
+                                                                      src="../../../../assets/img/avatar.png"
+                                                                      alt
+                                                                      srcset>
                                                         </span>
                                                         <div class="dash-count">
                                                                <div
-                                                                      class="dash-title">Amount
-                                                                      Due</div>
+                                                                      class="dash-title">Pretre</div>
                                                                <div
                                                                       class="dash-counts">
                                                                       <p>1,642</p>
@@ -59,25 +60,27 @@
                                                  </div>
                                                  <p
                                                         class="text-muted mt-3 mb-0"><span
-                                                               class="text-danger me-1"><i
-                                                                      class="fas fa-arrow-down me-1"></i>1.15%</span>
+                                                               class="text-success me-1"><i
+                                                                      class="fas fa-arrow-up me-1"></i>1.15%</span>
                                                         since last week</p>
                                           </div>
                                    </div>
                             </div>
                             <div class="col-xl-3 col-sm-6 col-12">
-                                   <div class="card">
+                                   <div class="card card2">
                                           <div class="card-body">
                                                  <div
                                                         class="dash-widget-header">
                                                         <span
-                                                               class="dash-widget-icon bg-2">
-                                                               <i
-                                                                      class="fas fa-users"></i>
+                                                               class="dash-widget-icon ">
+                                                               <img
+                                                                      src="../../../../assets/img/avatar.png"
+                                                                      alt
+                                                                      srcset>
                                                         </span>
                                                         <div class="dash-count">
                                                                <div
-                                                                      class="dash-title">Customers</div>
+                                                                      class="dash-title">adherant</div>
                                                                <div
                                                                       class="dash-counts">
                                                                       <p>3,642</p>
@@ -103,18 +106,20 @@
                                    </div>
                             </div>
                             <div class="col-xl-3 col-sm-6 col-12">
-                                   <div class="card">
+                                   <div class="card card3">
                                           <div class="card-body">
                                                  <div
                                                         class="dash-widget-header">
                                                         <span
-                                                               class="dash-widget-icon bg-3">
-                                                               <i
-                                                                      class="fas fa-file-alt"></i>
+                                                               class="dash-widget-icon ">
+                                                               <img
+                                                                      src="../../../../assets/img/avatar.png"
+                                                                      alt
+                                                                      srcset>
                                                         </span>
                                                         <div class="dash-count">
                                                                <div
-                                                                      class="dash-title">Invoices</div>
+                                                                      class="dash-title">Fidele</div>
                                                                <div
                                                                       class="dash-counts">
                                                                       <p>1,041</p>
@@ -140,18 +145,20 @@
                                    </div>
                             </div>
                             <div class="col-xl-3 col-sm-6 col-12">
-                                   <div class="card">
+                                   <div class="card card4">
                                           <div class="card-body">
                                                  <div
                                                         class="dash-widget-header">
                                                         <span
-                                                               class="dash-widget-icon bg-4">
-                                                               <i
-                                                                      class="far fa-file"></i>
+                                                               class="dash-widget-icon ">
+                                                               <img
+                                                                      src="../../../../assets/img/avatar.png"
+                                                                      alt
+                                                                      srcset>
                                                         </span>
                                                         <div class="dash-count">
                                                                <div
-                                                                      class="dash-title">Estimates</div>
+                                                                      class="dash-title">Pretre</div>
                                                                <div
                                                                       class="dash-counts">
                                                                       <p>2,150</p>
@@ -170,8 +177,8 @@
                                                  </div>
                                                  <p
                                                         class="text-muted mt-3 mb-0"><span
-                                                               class="text-danger me-1"><i
-                                                                      class="fas fa-arrow-down me-1"></i>8.68%</span>
+                                                               class="text-success me-1"><i
+                                                                      class="fas fa-arrow-up me-1"></i>8.68%</span>
                                                         since last week</p>
                                           </div>
                                    </div>
@@ -255,15 +262,11 @@
                                                         <thead
                                                                class="thead-light">
                                                                <tr>
-                                                                      <th>Estimate
-                                                                             Number</th>
-                                                                      <th>Customer</th>
-                                                                      <th>Estimate
-                                                                             Date</th>
-                                                                      <th>Expiry
-                                                                             Date</th>
-                                                                      <th>Amount</th>
-                                                                      <th>Status</th>
+                                                                      <th>Utilisateur</th>
+                                                                      <th>âge
+                                                                      </th>
+                                                                      <th>adresse</th>
+                                                                      <th>Email</th>
                                                                       <th
                                                                              class="text-end">Action</th>
                                                                </tr>
@@ -271,12 +274,7 @@
                                                         <tbody>
                                                                <tr
                                                                       *ngFor="let estimate of estimates; let i = index">
-                                                                      <td>
-                                                                             <a
-                                                                                    [routerLink]="'/estimates/view-estimate'">{{
-                                                                                    estimate.number
-                                                                                    }}</a>
-                                                                      </td>
+
                                                                       <td>
                                                                              <h2
                                                                                     class="table-avatar">
@@ -284,48 +282,27 @@
                                                                                            [routerLink]="'/profile'"><img
                                                                                                   class="avatar avatar-sm me-2 avatar-img rounded-circle"
                                                                                                   src="assets/img/profiles/avatar-{{ i + 1 }}.jpg"
-                                                                                                  alt="User Image" />{{
-                                                                                           estimate.customer_name
-                                                                                           }}</a>
+                                                                                                  alt="User Image" />
+                                                                                           utilisateur</a>
                                                                              </h2>
                                                                       </td>
-                                                                      <td>{{
+                                                                      <td>
+                                                                             19
+                                                                             ans
+                                                                      </td>
+                                                                      <td>
+                                                                             cameroun
+                                                                             <!-- {{
                                                                              estimate.estimate_date
                                                                              |
                                                                              date:
                                                                              "dd MMM yyyy"
-                                                                             }}</td>
-                                                                      <td>{{
-                                                                             estimate.expiry_date
-                                                                             |
-                                                                             date:
-                                                                             "dd MMM yyyy"
-                                                                             }}</td>
-                                                                      <td>{{
-                                                                             estimate.amount
-                                                                             }}</td>
-                                                                      <td>
-                                                                             <span
-                                                                                    *ngIf="estimate.status === 'Accepted'"
-                                                                                    class="badge bg-success-light">{{
-                                                                                    estimate.status
-                                                                                    }}</span>
-                                                                             <span
-                                                                                    *ngIf="estimate.status === 'Declined'"
-                                                                                    class="badge bg-danger-light">{{
-                                                                                    estimate.status
-                                                                                    }}</span>
-                                                                             <span
-                                                                                    *ngIf="estimate.status === 'Sent'"
-                                                                                    class="badge bg-info-light">{{
-                                                                                    estimate.status
-                                                                                    }}</span>
-                                                                             <span
-                                                                                    *ngIf="estimate.status === 'Expired'"
-                                                                                    class="badge bg-warning-light">{{
-                                                                                    estimate.status
-                                                                                    }}</span>
+                                                                             }} -->
                                                                       </td>
+                                                                      <td>
+                                                                             utilisateur1&#64;gmail.om
+                                                                      </td>
+
                                                                       <td
                                                                              class="text-end">
                                                                              <div
@@ -339,18 +316,13 @@
                                                                                     <div
                                                                                            class="dropdown-menu dropdown-menu-right">
                                                                                            <a
-                                                                                                  class="dropdown-item"
-                                                                                                  routerLink="/estimates/edit-estimate"
-                                                                                                  [queryParams]="{ id: estimate.id }"><i
+                                                                                                  class="dropdown-item"><i
                                                                                                          class="far fa-edit me-2"></i>Edit</a>
                                                                                            <a
-                                                                                                  (click)="tempId = estimate.id"
-                                                                                                  data-bs-toggle="modal"
-                                                                                                  data-bs-target="#delete_estimate"
                                                                                                   class="dropdown-item"
                                                                                                   href="javascript:void(0);"><i
                                                                                                          class="far fa-trash-alt me-2"></i>Delete</a>
-                                                                                           <a
+                                                                                           <!-- <a
                                                                                                   class="dropdown-item"
                                                                                                   [routerLink]="'/estimates/view-estimate'"><i
                                                                                                          class="far fa-eye me-2"></i>View</a>
@@ -382,7 +354,7 @@
                                                                                                   href="javascript:void(0);"><i
                                                                                                          class="far fa-times-circle me-2"></i>Mark
                                                                                                   as
-                                                                                                  Rejected</a>
+                                                                                                  Rejected</a> -->
                                                                                     </div>
                                                                              </div>
                                                                       </td>
