@@ -14,11 +14,12 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
     children: [
       { path: "estimates-list", component: EstimatesListComponent },
-      { path: "add-estimate", component: AddEstimatesComponent},
-      { path: "edit-estimate", component: EditEstimateComponent},
-      { path: "view-estimate", component: ViewEstimateComponent}
+      { path: "add-estimates", component: AddEstimatesComponent },
+      { path: "edit-estimates/:id", component: EditEstimateComponent },
+      { path: "view-estimates/:id", component: ViewEstimateComponent },
+      { path: '', redirectTo: 'estimates-list', pathMatch: 'full' }
     ]
-  },
+  }
 ];
 
 @NgModule({

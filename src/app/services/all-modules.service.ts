@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs';
+import { throwError, Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 // import { AllModulesData } from 'src/assets/all-modules-data/all-modules-data';
 import { id } from 'src/assets/all-modules-data/id';
+import { Event } from '../all-modules/evenement/event.model';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +37,9 @@ export class AllModulesService {
   httpOptions = {
     headers: this.headers,
   };
+
+  // API endpoint
+  private apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
@@ -82,76 +86,156 @@ export class AllModulesService {
   }
   estimates = [
     {
-      id : 1,
-      number: 'EST-17ER281',
-      customer_name : "Marie Canales",
-      customer_img : "assets/img/profiles/avatar-03.jpg",
-      estimate_date : "Wed Nov 16 2020 09:41:48 GMT+0530 (India Standard Time)",
-      expiry_date : "Wed Nov 22 2020 09:41:48 GMT+0530 (India Standard Time)",
-      amount : "$100",
-      status : "Accepted",
-  },
-    {
-        id : 2,
-        number: 'EST-26AS699',
-        customer_name : "Barbara Moore",
-        customer_img : "assets/img/profiles/avatar-04.jpg",
-        estimate_date : "Wed Nov 5 2020 09:41:48 GMT+0530 (India Standard Time)",
-        expiry_date : "Wed Nov 10 2020 09:41:48 GMT+0530 (India Standard Time)",
-        amount : "$75",
-        status : "Declined",
+      id: 1,
+      number: 'EVT-001',
+      customer_name: 'Culte Dominical',
+      estimate_date: '2024-03-21',
+      expiry_date: '2024-03-21',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'À venir'
     },
     {
-        id : 3,
-        number: 'EST-11KI214',
-        customer_name : "Greg Lynch",
-        customer_img : "assets/img/profiles/avatar-05.jpg",
-        estimate_date : "Wed Nov 1 2020 09:41:48 GMT+0530 (India Standard Time)",
-        expiry_date : "Wed Nov 5 2020 09:41:48 GMT+0530 (India Standard Time)",
-        amount : "$175",
-        status : "Sent",
+      id: 2,
+      number: 'EVT-002',
+      customer_name: 'Veillée de Prière',
+      estimate_date: '2024-03-22',
+      expiry_date: '2024-03-22',
+      amount: 'Adultes',
+      status: 'Membres',
+      type: 'En cours'
     },
     {
-        id : 4,
-        number: 'EST-98HJ687',
-        customer_name : "Karlene Chaidez",
-        customer_img : "assets/img/profiles/avatar-06.jpg",
-        estimate_date : "Wed Nov 12 2020 09:41:48 GMT+0530 (India Standard Time)",
-        expiry_date : "Wed Oct 17 2020 09:41:48 GMT+0530 (India Standard Time)",
-        amount : "$1500",
-        status : "Expired",
+      id: 3,
+      number: 'EVT-003',
+      customer_name: 'Étude du Livre des Actes',
+      estimate_date: '2024-03-23',
+      expiry_date: '2024-03-23',
+      amount: 'Jeunes',
+      status: 'Public',
+      type: 'À venir'
     },
     {
-        id : 5,
-        number: 'EST-71DR001',
-        customer_name : "John Blair",
-        customer_img : "assets/img/profiles/avatar-07.jpg",
-        estimate_date : "Wed Oct 2 2020 09:41:48 GMT+0530 (India Standard Time)",
-        expiry_date : "Wed Oct 8 2020 09:41:48 GMT+0530 (India Standard Time)",
-        amount : "$1890",
-        status : "Accepted",
+      id: 4,
+      number: 'EVT-004',
+      customer_name: 'Rencontre des Jeunes',
+      estimate_date: '2024-03-24',
+      expiry_date: '2024-03-24',
+      amount: 'Jeunes',
+      status: 'Public',
+      type: 'À venir'
     },
     {
-        id: 6,
-        number: 'EST-68MN425',
-        customer_name : "Russell Copeland",
-        customer_img : "assets/img/profiles/avatar-08.jpg",
-        estimate_date : "Wed Oct 2 2020 09:41:48 GMT+0530 (India Standard Time)",
-        expiry_date : "Wed Oct 8 2020 09:41:48 GMT+0530 (India Standard Time)",
-        amount : "$1890",
-        status : "Accepted",
+      id: 5,
+      number: 'EVT-005',
+      customer_name: 'Distribution de Repas',
+      estimate_date: '2024-03-20',
+      expiry_date: '2024-03-20',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'Terminé'
     },
     {
-        id: 7,
-        number: 'EST-86YU963',
-        customer_name : "Leatha Bailey",
-        customer_img : "assets/img/profiles/avatar-09.jpg",
-        estimate_date : "Wed Sep 25 2020 09:41:48 GMT+0530 (India Standard Time)",
-        expiry_date : "Wed Sep 30 2020 09:41:48 GMT+0530 (India Standard Time)",
-        amount : "$785",
-        status : "Accepted",
+      id: 6,
+      number: 'EVT-006',
+      customer_name: 'Cérémonie de Mariage - Jean & Marie',
+      estimate_date: '2024-03-25',
+      expiry_date: '2024-03-25',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'À venir'
+    },
+    {
+      id: 7,
+      number: 'EVT-007',
+      customer_name: 'Service de Baptême',
+      estimate_date: '2024-03-26',
+      expiry_date: '2024-03-26',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'À venir'
+    },
+    {
+      id: 8,
+      number: 'EVT-008',
+      customer_name: 'Formation des Leaders',
+      estimate_date: '2024-03-19',
+      expiry_date: '2024-03-19',
+      amount: 'Adultes',
+      status: 'Public',
+      type: 'Terminé'
+    },
+    {
+      id: 9,
+      number: 'EVT-009',
+      customer_name: 'Répétition de la Chorale',
+      estimate_date: '2024-03-23',
+      expiry_date: '2024-03-23',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'À venir'
+    },
+    {
+      id: 10,
+      number: 'EVT-010',
+      customer_name: 'École du Dimanche',
+      estimate_date: '2024-03-24',
+      expiry_date: '2024-03-24',
+      amount: 'Enfants',
+      status: 'Public',
+      type: 'À venir'
+    },
+    {
+      id: 11,
+      number: 'EVT-011',
+      customer_name: 'Réunion de Prière Matinale',
+      estimate_date: '2024-03-20',
+      expiry_date: '2024-03-20',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'Terminé'
+    },
+    {
+      id: 12,
+      number: 'EVT-012',
+      customer_name: 'Campagne d\'Évangélisation',
+      estimate_date: '2024-03-27',
+      expiry_date: '2024-03-27',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'À venir'
+    },
+    {
+      id: 13,
+      number: 'EVT-013',
+      customer_name: 'Conférence sur la Famille',
+      estimate_date: '2024-03-18',
+      expiry_date: '2024-03-18',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'Terminé'
+    },
+    {
+      id: 14,
+      number: 'EVT-014',
+      customer_name: 'Visite aux Malades',
+      estimate_date: '2024-03-25',
+      expiry_date: '2024-03-25',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'À venir'
+    },
+    {
+      id: 15,
+      number: 'EVT-015',
+      customer_name: 'Service du Soir',
+      estimate_date: '2024-03-24',
+      expiry_date: '2024-03-24',
+      amount: 'Tous les âges',
+      status: 'Public',
+      type: 'À venir'
     }
-]
+  ]
   customers = [
     {
       id: 1,
@@ -416,4 +500,100 @@ invoices = [
     status : "Paid",
   },
 ]
+
+  // Méthodes pour les événements
+  getEstimate(id: string): Observable<Event> {
+    // Trouver l'événement dans la liste
+    const event = this.estimates.find(e => e.id.toString() === id);
+
+    if (event) {
+      // Conversion des données au format Event
+      const formattedEvent: Event = {
+        id: event.id.toString(),
+        titre: event.customer_name,
+        date: event.estimate_date,
+        heureDebut: '09:00',
+        heureFin: '11:00',
+        frequentation: event.amount,
+        visibilite: event.status as 'Public' | 'Privé',
+        localisation: event.number,
+        status: event.type as 'À venir' | 'En cours' | 'Terminé' | 'Annulé'
+      };
+      return of(formattedEvent);
+    }
+    return throwError('Événement non trouvé');
+  }
+
+  deleteEstimate(id: string): Observable<void> {
+    const index = this.estimates.findIndex(e => e.id.toString() === id);
+    if (index !== -1) {
+      this.estimates.splice(index, 1);
+      return of(void 0);
+    }
+    return throwError('Événement non trouvé');
+  }
+
+  addEstimate(event: Event): Observable<Event> {
+    const newId = Math.max(...this.estimates.map(e => e.id)) + 1;
+    const newEstimate = {
+      id: newId,
+      number: `EVT-${String(newId).padStart(3, '0')}`,
+      customer_name: event.titre,
+      estimate_date: event.date,
+      expiry_date: event.date,
+      amount: event.frequentation,
+      status: event.visibilite,
+      type: event.status
+    };
+    this.estimates.push(newEstimate);
+    return of(event);
+  }
+
+  updateEstimate(id: string, event: Event): Observable<Event> {
+    const index = this.estimates.findIndex(e => e.id.toString() === id);
+    if (index !== -1) {
+      this.estimates[index] = {
+        ...this.estimates[index],
+        customer_name: event.titre,
+        estimate_date: event.date,
+        status: this.reverseMapStatus(event.status)
+      };
+      return of(event);
+    }
+    return throwError('Événement non trouvé');
+  }
+
+  getAllEstimates(): Observable<Event[]> {
+    return of(this.estimates.map(estimate => ({
+      id: estimate.id.toString(),
+      titre: estimate.customer_name,
+      date: estimate.estimate_date,
+      heureDebut: '09:00',
+      heureFin: '11:00',
+      frequentation: estimate.amount,
+      visibilite: estimate.status as 'Public' | 'Privé',
+      localisation: estimate.number,
+      status: estimate.type as 'À venir' | 'En cours' | 'Terminé' | 'Annulé'
+    })));
+  }
+
+  private mapStatus(status: string): 'À venir' | 'En cours' | 'Terminé' | 'Annulé' {
+    switch (status) {
+      case 'Accepted': return 'À venir';
+      case 'Sent': return 'En cours';
+      case 'Expired': return 'Terminé';
+      case 'Declined': return 'Annulé';
+      default: return 'À venir';
+    }
+  }
+
+  private reverseMapStatus(status: string): string {
+    switch (status) {
+      case 'À venir': return 'Accepted';
+      case 'En cours': return 'Sent';
+      case 'Terminé': return 'Expired';
+      case 'Annulé': return 'Declined';
+      default: return 'Accepted';
+    }
+  }
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { CommonServiceService } from '../../../services/common-service.service';
-import { Event, Router, NavigationStart, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AllModulesService } from '../../../services/all-modules.service';
@@ -15,68 +14,81 @@ declare const $: any;
   styleUrls: ['./add-estimates.component.css']
 })
 export class AddEstimatesComponent implements OnInit {
-  public url: any = "estimates";
-  page = 'Add Estimate';
-  public addEstimateForm!: FormGroup;
-  public pipe = new DatePipe("en-US");
-  constructor(public router: Router, location: Location, private allModulesService: AllModulesService,private formBuilder: FormBuilder,private route: ActivatedRoute,private toastr: ToastrService) {
-  }
+  public url: any = "events";
+  public addEventForm!: FormGroup;
+  public submitted = false;
+  public pipe = new DatePipe("fr-FR");
+
+  constructor(
+    public router: Router, 
+    private location: Location, 
+    private allModulesService: AllModulesService,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
-
-    this.addEstimateForm = this.formBuilder.group({
-      customerName: ["", [Validators.required]],
-      estimateFrom: ["", [Validators.required]],
-      estimateTo: ["", [Validators.required]],
-      estimateNumber: ["", [Validators.required]],
-      customerRef: ["", [Validators.required]],
+    this.addEventForm = this.formBuilder.group({
+      titre: ["", [Validators.required]],
+      date: ["", [Validators.required]],
+      heureDebut: ["12:00"],
+      heureFin: ["12:15"],
+      dureeType: ["journee"],
+      frequentation: ["", [Validators.required]],
+      visibilite: ["", [Validators.required]],
+      localisation: [""]
     });
-    // Datetimepicker
 
-  if($('.datetimepicker').length > 0 ){
-    $('.datetimepicker').datetimepicker({
-      format: 'DD-MM-YYYY',
-      icons: {
-        up: "fas fa-angle-up",
-        down: "fas fa-angle-down",
-        next: 'fas fa-angle-right',
-        previous: 'fas fa-angle-left'
+    // Initialisation des composants UI si nécessaire
+    setTimeout(() => {
+      $('.select2').select2();
+    }, 300);
+  }
+
+  // Getter pour un accès facile aux contrôles du formulaire
+  get f() { 
+    return this.addEventForm.controls; 
+  }
+
+  addEvent() {
+    this.submitted = true;
+
+    // Arrêter ici si le formulaire est invalide
+    if (this.addEventForm.invalid) {
+      return;
+    }
+
+    // Préparation des données pour envoyer au serveur
+    const formValues = this.addEventForm.value;
+    
+    // Formatage de la date si nécessaire
+    const eventDate = new Date(formValues.date);
+    const formattedDate = this.pipe.transform(eventDate, "dd/MM/yyyy");
+
+    // Création de l'objet événement
+    let eventObj = {
+      titre: formValues.titre,
+      date: formattedDate,
+      heure_debut: formValues.heureDebut,
+      heure_fin: formValues.heureFin,
+      journee_entiere: formValues.dureeType === 'journee',
+      frequentation: formValues.frequentation,
+      visibilite: formValues.visibilite,
+      localisation: formValues.localisation,
+      status: "À venir"
+    };
+
+    // Envoi des données au service
+    this.allModulesService.add(eventObj, this.url).subscribe({
+      next: (data) => {
+        this.toastr.success("Événement ajouté avec succès !", "Succès");
+        this.router.navigate(["/evenement/estimates-list"]);
+      },
+      error: (error) => {
+        this.toastr.error("Une erreur est survenue lors de l'ajout de l'événement", "Erreur");
       }
     });
-  }
-  }
-  private markFormGroupTouched(formGroup: FormGroup) {
-    (<any>Object).values(formGroup.controls).forEach((control:any) => {
-      control.markAsTouched();
-      if (control.controls) {
-        this.markFormGroupTouched(control);
-      }
-    });
-  }
-  addEstimate() {
-    if(this.addEstimateForm.invalid){
-      this.markFormGroupTouched(this.addEstimateForm)
-      return
-    }
-    else{
-      const jDate = new Date(this.addEstimateForm.value.estimateFrom.year, this.addEstimateForm.value.estimateFrom.month - 1, this.addEstimateForm.value.estimateFrom.day);
-      const eDate = new Date(this.addEstimateForm.value.estimateTo.year, this.addEstimateForm.value.estimateTo.month - 1, this.addEstimateForm.value.estimateTo.day);
-      let DateJoin = this.pipe.transform(jDate,"dd-MM-yyyy");
-      let DateExpiry = this.pipe.transform(eDate,"dd-MM-yyyy");
-      let obj = {
-        customer_name : this.addEstimateForm.value.customerName,
-        estimate_date : DateJoin,
-        expiry_date : DateExpiry,
-        number: this.addEstimateForm.value.estimateNumber,
-        amount : "$100",
-        status : "Accepted",
-      };
-      this.allModulesService.add(obj, this.url).subscribe((data) => {
-
-      });
-      this.router.navigate(["/estimates"]);
-      this.toastr.success("Estimates added sucessfully...!", "Success");
-    }
   }
   // deleteModal(template: TemplateRef<any>, special) {
   // }

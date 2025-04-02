@@ -1,0 +1,111 @@
+/* Styles pour le formulaire d'ajout d'événement */
+.form-control, .form-select {
+    height: 45px;
+    border-radius: 4px;
+    border-color: #ddd;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: none;
+    border-color: #999;
+}
+
+.card {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.card-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+hr {
+    background-color: #e63946;
+    opacity: 0.8;
+}
+
+.btn-danger {
+    background-color: #e63946;
+    border-color: #e63946;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.btn-danger:hover {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    
+}
+
+.form-check-input:checked {
+    background-color: #e63946;
+    border-color: #e63946;
+}
+
+.form-check-label {
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+.time-icon, .cal-icon {
+    position: relative;
+}
+
+.time-icon i, .cal-icon i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.text-danger {
+    color: #e63946 !important;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    color: #999;
+}
+
+/* Styles pour le bouton de soumission */
+.submit-button-container {
+    text-align: right;
+    padding: 20px 0;
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+    .form-check-inline {
+        display: block;
+        margin-bottom: 10px;
+        margin-right: 0;
+        padding-left: 0;
+    }
+
+    .form-check-input {
+        margin-left: 0;
+    }
+
+    .form-check-label {
+        padding-left: 8px;
+    }
+}

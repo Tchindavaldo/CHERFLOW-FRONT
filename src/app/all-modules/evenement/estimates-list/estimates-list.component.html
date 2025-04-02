@@ -5,19 +5,19 @@
                      <div class="row align-items-center">
                             <div class="col">
                                    <h3 class="page-title">Événements</h3>
-                                   <!-- <ul class="breadcrumb">
+                                   <ul class="breadcrumb">
                                           <li class="breadcrumb-item"><a [routerLink]="'/'">Dashboard</a></li>
                                           <li class="breadcrumb-item active">Événements</li>
-                                   </ul> -->
+                                   </ul>
                             </div>
-                            <!-- <div class="col-auto">
-                                   <a [routerLink]="'/evenement/add-estimate'" class="btn btn-primary me-2">
+                            <div class="col-auto">
+                                   <a [routerLink]="'/evenement/add-estimates'" class="btn btn-primary me-2">
                                           <i class="fas fa-plus"></i> Nouvel Événement
                                    </a>
                                    <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
                                           <i class="fas fa-filter"></i>
                                    </a>
-                            </div> -->
+                            </div>
                      </div>
 
                      <div class="row">
@@ -168,10 +168,12 @@
                                                  <table datatable class="table table-stripped table-hover">
                                                         <thead class="thead-light">
                                                                <tr>
-                                                                      <th>Événements</th>
+                                                                      <th>Titre</th>
                                                                       <th>Date</th>
-                                                                      <th>Heure</th>
+                                                                      <th>Horaire</th>
+                                                                      <th>Fréquentation</th>
                                                                       <th>Visibilité</th>
+                                                                      <th>Localisation</th>
                                                                       <th>Status</th>
                                                                       <th class="text-end">Actions</th>
                                                                </tr>
@@ -179,20 +181,29 @@
                                                         <tbody>
                                                                <tr *ngFor="let event of events">
                                                                       <td>
-                                                                             <a [routerLink]="'/evenement/view-estimate'">{{ event.titre }}</a>
+                                                                             <a [routerLink]="['/evenement/view-estimates', event.id]">{{ event.titre }}</a>
                                                                       </td>
                                                                       <td>{{ event.date | date: "dd MMM yyyy" }}</td>
-                                                                      <td>{{ event.heure }}</td>
                                                                       <td>
-                                                                             <span [class]="'badge ' + (event.visibility === 'Public' ? 'bg-success-light' : 'bg-warning-light')">
-                                                                                    {{ event.visibility }}
+                                                                             <span *ngIf="event.dureeType === 'journee'">Toute la journée</span>
+                                                                             <span *ngIf="event.dureeType === 'jours'">Plusieurs jours</span>
+                                                                             <span *ngIf="!event.dureeType">{{ event.heureDebut }} - {{ event.heureFin }}</span>
+                                                                      </td>
+                                                                      <td>{{ event.frequentation }}</td>
+                                                                      <td>
+                                                                             <span [class]="'badge ' + (event.visibilite === 'Public' ? 'bg-success-light' : 'bg-warning-light')">
+                                                                                    {{ event.visibilite }}
                                                                              </span>
                                                                       </td>
+                                                                      <td>{{ event.localisation }}</td>
                                                                       <td>
-                                                                             <span *ngIf="event.status === 'À venir'" class="badge bg-success-light">{{ event.status }}</span>
-                                                                             <span *ngIf="event.status === 'En cours'" class="badge bg-info-light">{{ event.status }}</span>
-                                                                             <span *ngIf="event.status === 'Terminé'" class="badge bg-warning-light">{{ event.status }}</span>
-                                                                             <span *ngIf="event.status === 'Annulé'" class="badge bg-danger-light">{{ event.status }}</span>
+                                                                             <span [class]="'badge ' + 
+                                                                                    (event.status === 'À venir' ? 'bg-success-light' : 
+                                                                                     event.status === 'En cours' ? 'bg-info-light' : 
+                                                                                     event.status === 'Terminé' ? 'bg-warning-light' : 
+                                                                                     'bg-danger-light')">
+                                                                                    {{ event.status }}
+                                                                             </span>
                                                                       </td>
                                                                       <td class="text-end">
                                                                              <div class="dropdown dropdown-action">
@@ -200,13 +211,13 @@
                                                                                            <i class="fas fa-ellipsis-h"></i>
                                                                                     </a>
                                                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                                                           <a class="dropdown-item" [routerLink]="'/evenement/view-estimate'">
+                                                                                           <a class="dropdown-item" [routerLink]="['/evenement/view-estimates', event.id]">
                                                                                                   <i class="far fa-eye me-2"></i>Voir
                                                                                            </a>
-                                                                                           <a class="dropdown-item" [routerLink]="'/evenement/edit-estimate'">
+                                                                                           <a class="dropdown-item" [routerLink]="['/evenement/edit-estimates', event.id]">
                                                                                                   <i class="far fa-edit me-2"></i>Modifier
                                                                                            </a>
-                                                                                           <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_estimate">
+                                                                                           <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete_estimate" (click)="openDeleteModal(event.id)">
                                                                                                   <i class="far fa-trash-alt me-2"></i>Supprimer
                                                                                            </a>
                                                                                     </div>

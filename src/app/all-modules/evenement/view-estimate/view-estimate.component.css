@@ -1,0 +1,95 @@
+.card-title {
+    margin-bottom: 0;
+    color: #1f1f1f;
+    font-size: 1.25rem;
+}
+
+.section-title {
+    color: #1f1f1f;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.info-section {
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item label {
+    font-size: 0.875rem;
+    display: block;
+}
+
+.info-item p {
+    font-size: 1rem;
+    color: #1f1f1f;
+}
+
+hr {
+    margin: 1rem 0;
+    opacity: 0.1;
+}
+
+.badge {
+    font-weight: 500;
+    padding: 5px 12px;
+    font-size: 0.875rem;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+
+.btn i {
+    font-size: 0.875rem;
+}
+
+.bg-success-light {
+    background-color: #e8f5e9;
+    color: #43a047;
+}
+
+.bg-warning-light {
+    background-color: #fff8e1;
+    color: #ffa000;
+}
+
+.bg-info-light {
+    background-color: #e3f2fd;
+    color: #2196f3;
+}
+
+.bg-danger-light {
+    background-color: #ffebee;
+    color: #ef5350;
+}
+
+.btn-group .btn {
+    min-width: 120px;
+}
+
+.modal-icon i {
+    font-size: 3rem;
+}
+
+.breadcrumb-item a {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #007bff;
+}
+
+.breadcrumb-item.active {
+    color: #343a40;
+}

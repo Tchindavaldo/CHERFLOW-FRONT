@@ -133,7 +133,7 @@ h5,
 h6 {
        font-family: 'CircularStd', sans-serif;
        margin-top: 0;
-       color: #2c3038;
+       color: #E30613
 }
 
 a {
@@ -4401,7 +4401,7 @@ table.table-inbox tbody tr.checked {
 }
 
 .account-subtitle {
-       color: #4c4c4c;
+       color: #757575;
        font-size: 17px;
        margin-bottom: 1.875rem;
        text-align: center;

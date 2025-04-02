@@ -1,130 +1,237 @@
 <!-- Page Wrapper -->
-			<div class="page-wrapper">
-				<div class="content container-fluid">
-			
-					<div class="row justify-content-center">
-						<div class="col-xl-8">
-							<div class="card">
-								<div class="card-body">
-									<div class="invoice-item">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="invoice-logo">
-													<img src="assets/img/logo.png" alt="logo">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<p class="invoice-details">
-													<strong>Order:</strong> #00124 <br>
-													<strong>Issued:</strong> 20/07/2019
-												</p>
-											</div>
-										</div>
-									</div>
-									
-									<!-- Invoice Item -->
-									<div class="invoice-item">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="invoice-info">
-													<strong class="customer-text">Invoice From</strong>
-													<p class="invoice-details invoice-details-two">
-														Darren Elder <br>
-														806  Twin Willow Lane, Old Forge,<br>
-														Newyork, USA <br>
-													</p>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="invoice-info invoice-info2">
-													<strong class="customer-text">Invoice To</strong>
-													<p class="invoice-details">
-														Walter Roberson <br>
-														299 Star Trek Drive, Panama City, <br>
-														Florida, 32405, USA <br>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- /Invoice Item -->
-									
-									<!-- Invoice Item -->
-									<div class="invoice-item">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="invoice-info">
-													<strong class="customer-text">Payment Method</strong>
-													<p class="invoice-details invoice-details-two">
-														Debit Card <br>
-														XXXXXXXXXXXX-2541 <br>
-														HDFC Bank<br>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- /Invoice Item -->
-									
-									<!-- Invoice Item -->
-									<div class="invoice-item invoice-table-wrap">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="table-responsive">
-													<table class="invoice-table table table-bordered">
-														<thead>
-															<tr>
-																<th>Description</th>
-																<th class="text-center">Quantity</th>
-																<th class="text-center">VAT</th>
-																<th class="text-end">Total</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td>General Consultation</td>
-																<td class="text-center">1</td>
-																<td class="text-center">$0</td>
-																<td class="text-end">$100</td>
-															</tr>
-															<tr>
-																<td>Video Call Booking</td>
-																<td class="text-center">1</td>
-																<td class="text-center">$0</td>
-																<td class="text-end">$250</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-											<div class="col-md-6 col-xl-4 ms-auto">
-												<div class="table-responsive">
-													<table class="invoice-table-two table">
-														<tbody>
-														<tr>
-															<th>Subtotal:</th>
-															<td><span>$350</span></td>
-														</tr>
-														<tr>
-															<th>Discount:</th>
-															<td><span>-10%</span></td>
-														</tr>
-														<tr>
-															<th>Total Amount:</th>
-															<td><span>$315</span></td>
-														</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- /Invoice Item -->
-									
+<div class="page-wrapper">
+	<div class="content container-fluid">
+		<!-- Back Button -->
+		<div class="back-button-container mb-3">
+			<a routerLink="/evenement/estimates-list" class="btn-back">
+				<i class="fas fa-arrow-left"></i>
+				<span>Retour à la liste</span>
+			</a>
+		</div>
+
+		<!-- Page Header -->
+		<div class="page-header">
+			<div class="row align-items-center">
+				<div class="col">
+					<h3 class="page-title">Détails de l'Événement</h3>
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item"><a routerLink="/evenement/estimates-list">Événements</a></li>
+						<li class="breadcrumb-item active">Détails</li>
+					</ul>
+				</div>
+				<div class="col-auto">
+					<button class="btn btn-primary me-2" (click)="onEdit()">
+						<i class="fas fa-edit"></i> Modifier
+					</button>
+					<button class="btn btn-danger" (click)="openDeleteModal()">
+						<i class="fas fa-trash"></i> Supprimer
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- /Page Header -->
+
+		<div class="row" *ngIf="event">
+			<!-- Informations principales -->
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12 mb-4">
+								<h4 class="text-primary mb-3">{{event.titre}}</h4>
+								<div class="badge" [ngClass]="{
+									'bg-success': event.status === 'À venir',
+									'bg-warning': event.status === 'En cours',
+									'bg-danger': event.status === 'Annulé',
+									'bg-secondary': event.status === 'Terminé'
+								}">{{event.status}}</div>
+							</div>
+							
+							<div class="col-md-6">
+								<div class="info-item mb-3">
+									<label class="text-muted mb-2"><i class="far fa-calendar me-2"></i>Date</label>
+									<p class="mb-0">{{event.date | date:'dd MMMM yyyy'}}</p>
+								</div>
+								<div class="info-item mb-3">
+									<label class="text-muted mb-2"><i class="far fa-clock me-2"></i>Horaires</label>
+									<p class="mb-0">{{event.heureDebut}} - {{event.heureFin}}</p>
+								</div>
+								<div class="info-item mb-3">
+									<label class="text-muted mb-2"><i class="fas fa-users me-2"></i>Public</label>
+									<p class="mb-0">{{event.frequentation}}</p>
+								</div>
+							</div>
+							
+							<div class="col-md-6">
+								<div class="info-item mb-3">
+									<label class="text-muted mb-2"><i class="fas fa-map-marker-alt me-2"></i>Lieu</label>
+									<p class="mb-0">{{event.localisation}}</p>
+								</div>
+								<div class="info-item mb-3">
+									<label class="text-muted mb-2"><i class="fas fa-eye me-2"></i>Visibilité</label>
+									<p class="mb-0">{{event.visibilite}}</p>
+								</div>
+								<div class="info-item mb-3">
+									<label class="text-muted mb-2"><i class="fas fa-hashtag me-2"></i>Référence</label>
+									<p class="mb-0">{{event.id}}</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- /Page Wrapper -->
+
+			<!-- Carte latérale avec informations complémentaires -->
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Informations complémentaires</h5>
+						<div class="info-item mb-3 mt-4">
+							<div class="d-flex align-items-center mb-3">
+								<div class="flex-shrink-0">
+									<span class="badge rounded-pill bg-light text-dark p-2">
+										<i class="fas fa-info-circle"></i>
+									</span>
+								</div>
+								<div class="flex-grow-1 ms-3">
+									<h6 class="mb-0">État actuel</h6>
+									<small class="text-muted">{{event.status}}</small>
+								</div>
+							</div>
+							<div class="d-flex align-items-center mb-3">
+								<div class="flex-shrink-0">
+									<span class="badge rounded-pill bg-light text-dark p-2">
+										<i class="fas fa-user-shield"></i>
+									</span>
+								</div>
+								<div class="flex-grow-1 ms-3">
+									<h6 class="mb-0">Accès</h6>
+									<small class="text-muted">{{event.visibilite}}</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Loading State -->
+		<div class="text-center p-5" *ngIf="loading">
+			<div class="spinner-border text-primary" role="status">
+				<span class="visually-hidden">Chargement...</span>
+			</div>
+		</div>
+
+		<!-- Error State -->
+		<div class="alert alert-danger" *ngIf="error">
+			Une erreur est survenue lors du chargement des détails de l'événement.
+		</div>
+	</div>
+</div>
+<!-- /Page Wrapper -->
+
+<!-- Delete Event Modal -->
+<div class="modal custom-modal fade" id="delete_estimate">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="form-header">
+					<h3>Supprimer l'événement</h3>
+					<p>Êtes-vous sûr de vouloir supprimer cet événement ?</p>
+				</div>
+				<div class="modal-btn delete-action">
+					<div class="row">
+						<div class="col-6">
+							<a class="btn btn-danger w-100" (click)="deleteEvent()">Supprimer</a>
+						</div>
+						<div class="col-6">
+							<a data-bs-dismiss="modal" class="btn btn-outline-secondary w-100">Annuler</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Delete Event Modal -->
+
+<style>
+.info-item label {
+	font-weight: 500;
+	font-size: 0.9rem;
+}
+.info-item p {
+	font-size: 1rem;
+}
+.badge {
+	font-size: 0.9rem;
+	padding: 0.5rem 1rem;
+}
+.card {
+	border: none;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.card-title {
+	color: #333;
+	font-size: 1.1rem;
+	font-weight: 500;
+}
+.text-primary {
+	color: #2C3E50 !important;
+}
+.btn-primary {
+	background-color: #2C3E50;
+	border-color: #2C3E50;
+}
+.btn-primary:hover {
+	background-color: #1a252f;
+	border-color: #1a252f;
+}
+.btn-outline-secondary {
+	padding: 0.5rem;
+	line-height: 1;
+}
+.btn-outline-secondary i {
+	font-size: 1.1rem;
+}
+.btn-outline-secondary:hover {
+	background-color: #f8f9fa;
+}
+
+.back-button-container {
+	margin-top: -10px;
+}
+
+.btn-back {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 15px;
+	color: #2C3E50;
+	text-decoration: none;
+	border-radius: 50px;
+	transition: all 0.3s ease;
+	background-color: #f8f9fa;
+	border: 1px solid #e9ecef;
+}
+
+.btn-back i {
+	font-size: 14px;
+	margin-right: 8px;
+}
+
+.btn-back span {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.btn-back:hover {
+	background-color: #2C3E50;
+	color: white;
+	transform: translateX(-5px);
+	box-shadow: 0 2px 5px rgba(44, 62, 80, 0.15);
+}
+
+.page-header {
+	margin-top: 10px;
+}
+</style>
