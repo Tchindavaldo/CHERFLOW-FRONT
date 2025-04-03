@@ -136,7 +136,7 @@ export class AllModulesService {
       type: 'Terminé'
     },
     {
-      id: 6,
+        id: 6,
       number: 'EVT-006',
       customer_name: 'Cérémonie de Mariage - Jean & Marie',
       estimate_date: '2024-03-25',
@@ -146,7 +146,7 @@ export class AllModulesService {
       type: 'À venir'
     },
     {
-      id: 7,
+        id: 7,
       number: 'EVT-007',
       customer_name: 'Service de Baptême',
       estimate_date: '2024-03-26',
@@ -235,7 +235,7 @@ export class AllModulesService {
       status: 'Public',
       type: 'À venir'
     }
-  ]
+]
   customers = [
     {
       id: 1,

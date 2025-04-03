@@ -1,6 +1,6 @@
 <!-- Page Wrapper -->
-<div class="page-wrapper">
-	<div class="content container-fluid">
+			<div class="page-wrapper">
+				<div class="content container-fluid">
 		<!-- Back Button -->
 		<div class="back-button-container mb-3">
 			<a routerLink="/evenement/estimates-list" class="btn-back">
@@ -34,9 +34,9 @@
 		<div class="row" *ngIf="event">
 			<!-- Informations principales -->
 			<div class="col-md-8">
-				<div class="card">
-					<div class="card-body">
-						<div class="row">
+							<div class="card">
+								<div class="card-body">
+										<div class="row">
 							<div class="col-md-12 mb-4">
 								<h4 class="text-primary mb-3">{{event.titre}}</h4>
 								<div class="badge" [ngClass]="{
@@ -47,39 +47,39 @@
 								}">{{event.status}}</div>
 							</div>
 							
-							<div class="col-md-6">
+											<div class="col-md-6">
 								<div class="info-item mb-3">
 									<label class="text-muted mb-2"><i class="far fa-calendar me-2"></i>Date</label>
 									<p class="mb-0">{{event.date | date:'dd MMMM yyyy'}}</p>
-								</div>
+												</div>
 								<div class="info-item mb-3">
 									<label class="text-muted mb-2"><i class="far fa-clock me-2"></i>Horaires</label>
 									<p class="mb-0">{{event.heureDebut}} - {{event.heureFin}}</p>
-								</div>
+											</div>
 								<div class="info-item mb-3">
 									<label class="text-muted mb-2"><i class="fas fa-users me-2"></i>Public</label>
 									<p class="mb-0">{{event.frequentation}}</p>
-								</div>
-							</div>
-							
-							<div class="col-md-6">
+										</div>
+									</div>
+									
+											<div class="col-md-6">
 								<div class="info-item mb-3">
 									<label class="text-muted mb-2"><i class="fas fa-map-marker-alt me-2"></i>Lieu</label>
 									<p class="mb-0">{{event.localisation}}</p>
-								</div>
+												</div>
 								<div class="info-item mb-3">
 									<label class="text-muted mb-2"><i class="fas fa-eye me-2"></i>Visibilité</label>
 									<p class="mb-0">{{event.visibilite}}</p>
-								</div>
+											</div>
 								<div class="info-item mb-3">
 									<label class="text-muted mb-2"><i class="fas fa-hashtag me-2"></i>Référence</label>
 									<p class="mb-0">{{event.id}}</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+												</div>
+											</div>
+												</div>
+											</div>
+										</div>
+									</div>
 
 			<!-- Carte latérale avec informations complémentaires -->
 			<div class="col-md-4">
@@ -92,18 +92,18 @@
 									<span class="badge rounded-pill bg-light text-dark p-2">
 										<i class="fas fa-info-circle"></i>
 									</span>
-								</div>
+												</div>
 								<div class="flex-grow-1 ms-3">
 									<h6 class="mb-0">État actuel</h6>
 									<small class="text-muted">{{event.status}}</small>
-								</div>
-							</div>
+												</div>
+											</div>
 							<div class="d-flex align-items-center mb-3">
 								<div class="flex-shrink-0">
 									<span class="badge rounded-pill bg-light text-dark p-2">
 										<i class="fas fa-user-shield"></i>
 									</span>
-								</div>
+										</div>
 								<div class="flex-grow-1 ms-3">
 									<h6 class="mb-0">Accès</h6>
 									<small class="text-muted">{{event.visibilite}}</small>
@@ -125,10 +125,10 @@
 		<!-- Error State -->
 		<div class="alert alert-danger" *ngIf="error">
 			Une erreur est survenue lors du chargement des détails de l'événement.
-		</div>
-	</div>
-</div>
-<!-- /Page Wrapper -->
+					</div>
+				</div>
+			</div>
+			<!-- /Page Wrapper -->
 
 <!-- Delete Event Modal -->
 <div class="modal custom-modal fade" id="delete_estimate">
