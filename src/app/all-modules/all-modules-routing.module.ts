@@ -21,8 +21,12 @@ const routes: Routes = [
 
                      },
 
-
-
+                     {
+                            path: 'rendezvous',
+                            loadChildren: () =>
+                                   import( '../pages/rendez-vous/rendez-vous.module' ).then( ( m ) => m.RendezVousModule ),
+                            canActivate: [ AuthenticationGuard ],
+                     },
 
                      {
                             path: 'membre',
@@ -31,60 +35,12 @@ const routes: Routes = [
                             canActivate: [ AuthenticationGuard ],
                      },
 
-
-
-
                      {
                             path: 'evenement',
                             loadChildren: () =>
                                    import( './evenement/estimates.module' ).then( ( m ) => m.EstimatesModule ),
                             canActivate: [ AuthenticationGuard ],
                      },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                      //       template routes
                      {

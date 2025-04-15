@@ -1,0 +1,367 @@
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <!-- Page Header -->
+    <div class="page-header d-flex justify-content-between align-items-center">
+      <div>
+        <h1 class="page-title mb-0">Rendez-vous</h1>
+        <div class="breadcrumb-bar mt-2">
+          <a routerLink="/index">Dashboard</a> / Rendez-vous
+        </div>
+      </div>
+      <div>
+        <a routerLink="/rendezvous/nouveau" class="btn btn-new">
+          <i class="fas fa-plus me-1"></i>Nouveau Rendez-vous
+        </a>
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Search Filter -->
+    <div class="search-filter-row mt-4 mb-4">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Chercher un rendez-vous..." [(ngModel)]="searchTerm">
+        </div>
+        <div class="col-md-3">
+          <div class="status-select-container">
+            <select class="form-select" [(ngModel)]="filterStatus">
+              <option value="">Tous les statuts</option>
+              <option value="En attente">En attente</option>
+              <option value="Confirmé">Confirmé</option>
+              <option value="Annulé">Annulé</option>
+            </select>
+            <span class="select-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="date-input-container">
+            <input type="text" class="form-control" placeholder="jj/mm/aaaa" [(ngModel)]="filterDate">
+            <span class="calendar-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-rechercher w-100" (click)="filterRendezVous()">Rechercher</button>
+        </div>
+      </div>
+    </div>
+    <!-- /Search Filter -->
+
+    <!-- Table Content -->
+    <div class="card">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table custom-table mb-0">
+            <thead>
+              <tr>
+                <th>IDENTIFIANT</th>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Statut</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rdv of filteredRendezVous">
+                <td>{{rdv.id}}</td>
+                <td>
+                  <span class="contact-name">{{rdv.nomContact}}</span>
+                </td>
+                <td>{{rdv.date | date:'d MMMM yyyy':'':'fr-FR'}}</td>
+                <td>{{rdv.heure}}</td>
+                <td>
+                  <span class="status-badge" [ngClass]="{
+                    'status-confirmed': rdv.statut === 'Confirmé',
+                    'status-pending': rdv.statut === 'En attente',
+                    'status-cancelled': rdv.statut === 'Annulé'
+                  }">{{rdv.statut}}</span>
+                </td>
+                <td class="text-end position-relative">
+                  <div class="dropdown">
+                    <a href="javascript:void(0)" class="action-icon" (click)="toggleActionMenu($event, rdv.id)">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div class="dropdown-menu" [id]="'action-menu-' + rdv.id">
+                      <a class="dropdown-item" routerLink="/rendezvous/voir/{{rdv.id}}">
+                        <i class="fas fa-eye me-2 text-info"></i>Voir
+                      </a>
+                      <a class="dropdown-item" routerLink="/rendezvous/modifier/{{rdv.id}}">
+                        <i class="fas fa-edit me-2 text-success"></i>Modifier
+                      </a>
+                      <a class="dropdown-item" href="javascript:void(0)" (click)="openDeleteModal(rdv)">
+                        <i class="fas fa-trash me-2 text-danger"></i>Supprimer
+                      </a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngIf="filteredRendezVous.length === 0">
+                <td colspan="6" class="text-center">Aucun rendez-vous trouvé</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- /Table Content -->
+  </div>
+</div>
+<!-- /Page Wrapper -->
+
+<!-- Delete Modal -->
+<div class="modal custom-modal fade" id="delete_modal" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-header">
+          <h3>Supprimer le Rendez-vous</h3>
+          <p>Êtes-vous sûr de vouloir supprimer ce rendez-vous ?</p>
+        </div>
+        <div class="modal-btn delete-action">
+          <div class="row">
+            <div class="col-6">
+              <a href="javascript:void(0);" class="btn btn-danger w-100" (click)="deleteRendezVous()">Supprimer</a>
+            </div>
+            <div class="col-6">
+              <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-outline-secondary w-100">Annuler</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Delete Modal -->
+
+<style>
+  /* Page title styles */
+  .page-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .breadcrumb-bar {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .breadcrumb-bar a {
+    color: #777;
+    text-decoration: none;
+  }
+  
+  /* Button styles */
+  .btn-new {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+  
+  .btn-new:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: white;
+  }
+  
+  .btn-rechercher {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .btn-rechercher:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+    color: white;
+  }
+  
+  /* Filter styles */
+  .search-filter-row .form-control,
+  .search-filter-row .form-select {
+    height: 42px;
+    border-radius: 4px;
+  }
+  
+  .date-input-container {
+    position: relative;
+  }
+  
+  .status-select-container {
+    position: relative;
+  }
+  
+  .select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #777;
+    pointer-events: none;
+  }
+  
+  /* Pour masquer la flèche par défaut dans certains navigateurs */
+  .status-select-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #777;
+    pointer-events: none;
+  }
+  
+  /* Table styles */
+  .card {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: none;
+  }
+  
+  .custom-table {
+    margin: 0;
+  }
+  
+  .custom-table thead th {
+    background-color: #f7f7f7;
+    color: #333;
+    font-weight: 600;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .custom-table tbody td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .contact-name {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Status badge styles */
+  .status-badge {
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    min-width: 100px;
+  }
+  
+  .status-confirmed {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .status-pending {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .status-cancelled {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  /* Action menu styles */
+  .action-icon {
+    color: #777;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  .action-icon:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: -10px;
+    right: 35px;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 1050;
+    list-style: none;
+    margin: 0;
+    display: none;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  
+  .dropdown-menu.show {
+    display: block;
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #f5f5f5;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+    padding-left: 20px;
+  }
+  
+  .dropdown-menu:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: -9px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    transform: rotate(45deg);
+    box-shadow: 3px -3px 5px rgba(0, 0, 0, 0.02);
+    border-right: 1px solid rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+</style>

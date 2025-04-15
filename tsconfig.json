@@ -25,5 +25,9 @@
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   },
-  "allowSyntheticDefaultImports": true
+  "allowSyntheticDefaultImports": true,
+  "include": [
+    "src/**/*.ts",
+    "src/app/pages/rendez-vous/**/*.ts"
+  ]
 }

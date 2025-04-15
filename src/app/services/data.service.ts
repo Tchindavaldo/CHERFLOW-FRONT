@@ -196,7 +196,7 @@ export class DataService {
       localisation: 'Centre Communautaire'
     },
     {
-      id: 6,
+        id: 6,
       number: 'EVT-006',
       customer_name: 'Cérémonie de Mariage - Jean & Marie',
       estimate_date: '2024-03-25T00:00:00',
@@ -207,7 +207,7 @@ export class DataService {
       localisation: 'Salle Principale'
     },
     {
-      id: 7,
+        id: 7,
       number: 'EVT-007',
       customer_name: 'Service de Baptême',
       estimate_date: '2024-03-26T00:00:00',
@@ -305,7 +305,7 @@ export class DataService {
       type: 'À venir',
       localisation: 'Salle Principale'
     }
-  ]
+]
 
 invoices = [
   {

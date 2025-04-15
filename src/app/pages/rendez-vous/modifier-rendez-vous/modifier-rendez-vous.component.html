@@ -1,0 +1,184 @@
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <!-- Back Button -->
+    <div class="back-button-container mb-3">
+      <a routerLink="/rendezvous/list" class="btn-back">
+        <i class="fas fa-arrow-left"></i>
+        <span>Retour à la liste</span>
+      </a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h3 class="page-title">Modifier le Rendez-vous</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/rendezvous/list">Rendez-vous</a></li>
+            <li class="breadcrumb-item active">Modifier</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Loading State -->
+    <div class="text-center p-5" *ngIf="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div class="alert alert-danger" *ngIf="error">
+      Une erreur est survenue lors du chargement des détails du rendez-vous.
+    </div>
+
+    <!-- Form -->
+    <div class="row" *ngIf="!loading && !error">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="modifierForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="nomContact" class="form-label">Nom du contact <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nomContact" formControlName="nomContact" placeholder="Entrez le nom du contact">
+                    <div *ngIf="modifierForm.get('nomContact')?.invalid && modifierForm.get('nomContact')?.touched" class="text-danger mt-1">
+                      Le nom du contact est requis
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="Entrez l'email">
+                    <div *ngIf="modifierForm.get('email')?.invalid && modifierForm.get('email')?.touched" class="text-danger mt-1">
+                      <div *ngIf="modifierForm.get('email')?.errors?.['required']">L'email est requis</div>
+                      <div *ngIf="modifierForm.get('email')?.errors?.['email']">Entrez un email valide</div>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <label for="telephone" class="form-label">Téléphone <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="telephone" formControlName="telephone" placeholder="Entrez le numéro de téléphone">
+                    <div *ngIf="modifierForm.get('telephone')?.invalid && modifierForm.get('telephone')?.touched" class="text-danger mt-1">
+                      Le numéro de téléphone est requis
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="date" class="form-label">Date <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="date" formControlName="date">
+                    <div *ngIf="modifierForm.get('date')?.invalid && modifierForm.get('date')?.touched" class="text-danger mt-1">
+                      La date est requise
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <label for="heure" class="form-label">Heure <span class="text-danger">*</span></label>
+                    <input type="time" class="form-control" id="heure" formControlName="heure">
+                    <div *ngIf="modifierForm.get('heure')?.invalid && modifierForm.get('heure')?.touched" class="text-danger mt-1">
+                      L'heure est requise
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <label for="statut" class="form-label">Statut <span class="text-danger">*</span></label>
+                    <select class="form-select" id="statut" formControlName="statut">
+                      <option value="En attente">En attente</option>
+                      <option value="Confirmé">Confirmé</option>
+                      <option value="Annulé">Annulé</option>
+                    </select>
+                    <div *ngIf="modifierForm.get('statut')?.invalid && modifierForm.get('statut')?.touched" class="text-danger mt-1">
+                      Le statut est requis
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="form-group mb-3">
+                    <label for="notes" class="form-label">Notes</label>
+                    <textarea class="form-control" id="notes" formControlName="notes" rows="4" placeholder="Entrez des notes supplémentaires"></textarea>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="form-group text-end mt-3">
+                    <button type="button" class="btn btn-secondary me-2" (click)="annuler()">Annuler</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">
+                      <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-1"></span>
+                      Enregistrer les modifications
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Form -->
+  </div>
+</div>
+<!-- /Page Wrapper -->
+
+<style>
+.card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  color: #2C3E50;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.btn-back i {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.btn-back span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-back:hover {
+  background-color: #2C3E50;
+  color: white;
+  transform: translateX(-5px);
+  box-shadow: 0 2px 5px rgba(44, 62, 80, 0.15);
+}
+
+.page-header {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.btn-primary {
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+}
+
+.btn-primary:hover {
+  background-color: #1a252f;
+  border-color: #1a252f;
+}
+</style>
