@@ -2,17 +2,31 @@
 <div class="header header-one">
 
        <!-- Logo -->
-       <div class="header-left header-left-one">
+       <div class="header-left header-left-one"
+              style="display: flex;align-items: center;">
+              <div>
               <a [routerLink]="'/'" class="logo">
-                     <img src="assets/img/logo.png" alt="Logo">
+                            <img src="assets/img/logo_final-removebg.png"
+                                   alt="Logo">
               </a>
               <a [routerLink]="'/'" class="white-logo">
-                     <img src="assets/img/logo-white.png" alt="Logo">
+                            <img src="assets/img/logo_final-removebg.png"
+                                   alt="Logo">
               </a>
               <a [routerLink]="'/'" class="logo logo-small">
-                     <img src="assets/img/logo-small.png" alt="Logo" width="30"
+                            <img src="assets/img/logo_final-removebg.png"
+                                   alt="Logo"
+                                   width="30"
                             height="30">
               </a>
+              </div>
+
+              <div style="
+    color: #E30613;
+    font-weight: 900;
+">
+                     ChurchFlow
+              </div>
        </div>
        <!-- /Logo -->
 
@@ -90,7 +104,7 @@
                                           class="clear-noti"> Clear All</a>
                             </div>
                             <div class="noti-content">
-                                   <ul class="notification-list">
+                                   <!-- <ul class="notification-list">
                                           <li class="notification-message">
                                                  <a href="javascript:void(0)">
                                                         <div
@@ -240,7 +254,7 @@
                                                         </div>
                                                  </a>
                                           </li>
-                                   </ul>
+                                   </ul> -->
                             </div>
                             <div class="topnav-dropdown-footer">
                                    <a href="javascript:void(0)">View all
@@ -271,10 +285,10 @@
                             <a class="dropdown-item"
                                    [routerLink]="'/setting/settings'"><i
                                           data-feather="settings"
-                                          class="me-1"></i> Settings</a>
+                                          class="me-1"></i> Paramètres</a>
                             <a class="dropdown-item" (click)="Logout()"><i
                                           data-feather="log-out"
-                                          class="me-1"></i> Logout</a>
+                                          class="me-1"></i> Deconnexion</a>
                      </div>
               </li>
               <!-- /User Menu -->
@@ -292,89 +306,92 @@
                      <ul>
                             <li class="menu-title"><span>Acceuil</span></li>
                             <li [class.active]="base === 'index'">
-                                   <a [routerLink]="'/index'"><i
-                                                 data-feather="home"></i>
-                                          <span>Dashboard</span></a>
+                                   <a [routerLink]="'/index'">
+                                          <i class="fas fa-th"></i>
+                                          <span>Dashboard</span>
+                                   </a>
                             </li>
 
-                            <li>
-                                   <a
-                                          [routerLink]="'/estimates/estimates-list'"><i
-                                                 data-feather="file-text"></i>
-                                          <span>Rendez-vous</span></a>
+                            <li [class.active]="base === 'rendezvous'">
+                                   <a [routerLink]="'/rendezvous/list'">
+                                          <i class="far fa-calendar-alt"></i>
+                                          <span>Rendez-vous</span>
+                                   </a>
                             </li>
 
                             <li class="menu-title"><span>Membres</span></li>
-                            <li>
-                                   <a [routerLink]="'/index'"><i
-                                                 data-feather="home"></i>
-                                          <span>Nouveau</span></a>
+                            <li [class.active]="base === 'membre' && page === 'add-estimate'">
+                                   <a [routerLink]="'/membre/add-estimate'">
+                                          <i class="fas fa-user-plus"></i>
+                                          <span>Nouveau</span>
+                                   </a>
                             </li>
 
-                            <li>
-                                   <a
-                                          [routerLink]="'/estimates/estimates-list'"><i
-                                                 data-feather="file-text"></i>
-                                          <span>Listes</span></a>
+                            <li [class.active]="base === 'membre' && page === 'estimates-list'">
+                                   <a [routerLink]="'/membre/estimates-list'">
+                                          <i class="fas fa-list"></i>
+                                          <span>Listes</span>
+                                   </a>
                             </li>
 
-                            <li class="menu-title"><span>Événements et
-                                          Activités</span></li>
-                            <li>
-                                   <a [routerLink]="'/index'"><i
-                                                 data-feather="home"></i>
-                                          <span>Planifications</span></a>
+                            <li class="menu-title"><span>Événements et Activités</span></li>
+                            <li [class.active]="base === 'evenement' && page === 'add-estimates'">
+                                   <a [routerLink]="'/evenement/add-estimates'">
+                                          <i class="far fa-calendar-check"></i>
+                                          <span>Planifications</span>
+                                   </a>
                             </li>
 
-                            <li>
-                                   <a
-                                          [routerLink]="'/estimates/estimates-list'"><i
-                                                 data-feather="file-text"></i>
-                                          <span>Listes</span></a>
+                            <li [class.active]="base === 'evenement' && page === 'estimates-list'">
+                                   <a [routerLink]="'/evenement/estimates-list'">
+                                          <i class="fas fa-list-alt"></i>
+                                          <span>Listes</span>
+                                   </a>
                             </li>
 
                             <li class="menu-title"><span>Finance</span></li>
-                            <li>
-                                   <a [routerLink]="'/index'"><i
-                                                 data-feather="home"></i>
-                                          <span>Suivis</span></a>
+                            <li [class.active]="base === 'finance' && page === 'suivis'">
+                                   <a [routerLink]="'/finance/suivis'">
+                                          <i class="fas fa-chart-line"></i>
+                                          <span>Suivis</span>
+                                   </a>
                             </li>
 
-                            <li>
-                                   <a
-                                          [routerLink]="'/estimates/estimates-list'"><i
-                                                 data-feather="file-text"></i>
-                                          <span>Rapport</span></a>
+                            <li [class.active]="base === 'finance' && page === 'rapport'">
+                                   <a [routerLink]="'/finance/rapport'">
+                                          <i class="fas fa-file-invoice"></i>
+                                          <span>Rapport</span>
+                                   </a>
                             </li>
 
-                            <li class="menu-title"><span>Ressources </span></li>
-                            <li>
-                                   <a [routerLink]="'/index'"><i
-                                                 data-feather="home"></i>
-                                          <span>Inventaire</span></a>
+                            <li class="menu-title"><span>Ressources</span></li>
+                            <li [class.active]="base === 'ressources' && page === 'inventaire'">
+                                   <a [routerLink]="'/ressources/inventaire'">
+                                          <i class="fas fa-boxes"></i>
+                                          <span>Inventaire</span>
+                                   </a>
                             </li>
 
-                            <li>
-                                   <a
-                                          [routerLink]="'/estimates/estimates-list'"><i
-                                                 data-feather="file-text"></i>
-                                          <span>Maintenance</span></a>
+                            <li [class.active]="base === 'ressources' && page === 'maintenance'">
+                                   <a [routerLink]="'/ressources/maintenance'">
+                                          <i class="fas fa-tools"></i>
+                                          <span>Maintenance</span>
+                                   </a>
                             </li>
 
-                            <li
-                                   class="menu-title"><span>Communication</span></li>
-                            <li>
-                                   <a [routerLink]="'/index'"><i
-                                                 data-feather="home"></i>
-                                          <span>Bulletins
-                                                 d’informations</span></a>
+                            <li class="menu-title"><span>Communication</span></li>
+                            <li [class.active]="base === 'communication' && page === 'bulletins'">
+                                   <a [routerLink]="'/communication/bulletins'">
+                                          <i class="fas fa-bullhorn"></i>
+                                          <span>Bulletins d'informations</span>
+                                   </a>
                             </li>
 
-                            <li>
-                                   <a
-                                          [routerLink]="'/estimates/estimates-list'"><i
-                                                 data-feather="file-text"></i>
-                                          <span>Annonces</span></a>
+                            <li [class.active]="base === 'communication' && page === 'annonces'">
+                                   <a [routerLink]="'/communication/annonces'">
+                                          <i class="fas fa-newspaper"></i>
+                                          <span>Annonces</span>
+                                   </a>
                             </li>
 
                      </ul>

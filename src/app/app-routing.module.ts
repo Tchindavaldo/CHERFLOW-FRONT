@@ -53,13 +53,13 @@ const routes: Routes = [
         (m) => m.InvoiceReportsModule
       ),
     canActivate: [AuthenticationGuard],
-
   },
   {
     path: '',
     loadChildren: () =>
-    import('./all-modules/all-modules.module').then(m => m.AllModulesModule)
-},
+    import('./all-modules/all-modules.module').then(m => m.AllModulesModule),
+    canActivate: [AuthenticationGuard]
+  },
   {path: '**', redirectTo: '/login'},
 ];
 

@@ -1,0 +1,236 @@
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <!-- Back Button -->
+    <div class="back-button-container mb-3">
+      <a routerLink="/rendezvous/list" class="btn-back">
+        <i class="fas fa-arrow-left"></i>
+        <span>Retour à la liste</span>
+      </a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h3 class="page-title">Détails du Rendez-vous</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/rendezvous/list">Rendez-vous</a></li>
+            <li class="breadcrumb-item active">Détails</li>
+          </ul>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-primary me-2" (click)="onEdit()">
+            <i class="fas fa-edit"></i> Modifier
+          </button>
+          <button class="btn btn-danger" (click)="openDeleteModal()">
+            <i class="fas fa-trash"></i> Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row" *ngIf="rendezVous">
+      <!-- Informations principales -->
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 mb-4">
+                <h4 class="text-primary mb-3">{{rendezVous.nomContact}}</h4>
+                <div class="badge" [ngClass]="{
+                  'bg-success': rendezVous.statut === 'Confirmé',
+                  'bg-warning': rendezVous.statut === 'En attente',
+                  'bg-danger': rendezVous.statut === 'Annulé'
+                }">{{rendezVous.statut}}</div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="info-item mb-3">
+                  <label class="text-muted mb-2"><i class="far fa-calendar me-2"></i>Date</label>
+                  <p class="mb-0">{{rendezVous.date | date:'dd MMMM yyyy'}}</p>
+                </div>
+                <div class="info-item mb-3">
+                  <label class="text-muted mb-2"><i class="far fa-clock me-2"></i>Heure</label>
+                  <p class="mb-0">{{rendezVous.heure}}</p>
+                </div>
+                <div class="info-item mb-3">
+                  <label class="text-muted mb-2"><i class="fas fa-hashtag me-2"></i>Référence</label>
+                  <p class="mb-0">{{rendezVous.id}}</p>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="info-item mb-3">
+                  <label class="text-muted mb-2"><i class="fas fa-envelope me-2"></i>Email</label>
+                  <p class="mb-0">{{rendezVous.email}}</p>
+                </div>
+                <div class="info-item mb-3">
+                  <label class="text-muted mb-2"><i class="fas fa-phone me-2"></i>Téléphone</label>
+                  <p class="mb-0">{{rendezVous.telephone}}</p>
+                </div>
+                <div class="info-item mb-3">
+                  <label class="text-muted mb-2"><i class="fas fa-info-circle me-2"></i>Statut</label>
+                  <p class="mb-0">{{rendezVous.statut}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte latérale avec informations complémentaires -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Informations complémentaires</h5>
+            <div class="info-item mb-3 mt-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="flex-shrink-0">
+                  <span class="badge rounded-pill bg-light text-dark p-2">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="mb-0">État actuel</h6>
+                  <small class="text-muted">{{rendezVous.statut}}</small>
+                </div>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <div class="flex-shrink-0">
+                  <span class="badge rounded-pill bg-light text-dark p-2">
+                    <i class="fas fa-clock"></i>
+                  </span>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="mb-0">Créé le</h6>
+                  <small class="text-muted">{{rendezVous.createdAt | date:'dd/MM/yyyy'}}</small>
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <span class="badge rounded-pill bg-light text-dark p-2">
+                    <i class="fas fa-edit"></i>
+                  </span>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="mb-0">Dernière mise à jour</h6>
+                  <small class="text-muted">{{rendezVous.updatedAt | date:'dd/MM/yyyy'}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Notes section -->
+        <div class="card mt-4" *ngIf="rendezVous.notes">
+          <div class="card-body">
+            <h5 class="card-title">Notes</h5>
+            <p class="mt-3">{{rendezVous.notes}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="text-center p-5" *ngIf="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div class="alert alert-danger" *ngIf="error">
+      Une erreur est survenue lors du chargement des détails du rendez-vous.
+    </div>
+  </div>
+</div>
+<!-- /Page Wrapper -->
+
+<!-- Delete Modal -->
+<div class="modal custom-modal fade" id="delete_modal" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-header">
+          <h3>Supprimer le Rendez-vous</h3>
+          <p>Êtes-vous sûr de vouloir supprimer ce rendez-vous ?</p>
+        </div>
+        <div class="modal-btn delete-action">
+          <div class="row">
+            <div class="col-6">
+              <a href="javascript:void(0);" class="btn btn-danger w-100" (click)="deleteRendezVous()">Supprimer</a>
+            </div>
+            <div class="col-6">
+              <a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-outline-secondary w-100">Annuler</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Delete Modal -->
+
+<style>
+.info-item label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.info-item p {
+  font-size: 1rem;
+}
+.badge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+.card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.card-title {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.text-primary {
+  color: #2C3E50 !important;
+}
+.btn-primary {
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+}
+.btn-primary:hover {
+  background-color: #1a252f;
+  border-color: #1a252f;
+}
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  color: #2C3E50;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+.btn-back i {
+  font-size: 14px;
+  margin-right: 8px;
+}
+.btn-back span {
+  font-size: 14px;
+  font-weight: 500;
+}
+.btn-back:hover {
+  background-color: #2C3E50;
+  color: white;
+  transform: translateX(-5px);
+  box-shadow: 0 2px 5px rgba(44, 62, 80, 0.15);
+}
+.page-header {
+  margin-top: 10px;
+}
+</style>

@@ -1,79 +1,553 @@
-            
-<div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title">Basic information</h5>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+    <div class="content container-fluid p-0">
+        <!-- Settings Content -->
+        <div class="card profile-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-user-circle me-2 text-primary"></i>Mon Profil
+                    </h5>
+                    <p class="text-muted small mb-0">Gérez vos informations personnelles et vos préférences</p>
+                </div>
+                <div class="profile-img-container">
+                    <div class="profile-img">
+                        <img src="assets/img/profiles/avatar-02.jpg" alt="Photo de profil">
+                        <div class="profile-img-edit">
+                            <label for="profile_image">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input type="file" id="profile_image" class="d-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pt-0">
+                <!-- Profile Tabs -->
+                <ul class="nav nav-tabs nav-tabs-solid nav-justified mt-3" id="profileTabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#identity">
+                            <i class="fas fa-user me-1"></i>Identité
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#contact">
+                            <i class="fas fa-address-book me-1"></i>Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#ministry">
+                            <i class="fas fa-pray me-1"></i>Ministères
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#emergency">
+                            <i class="fas fa-ambulance me-1"></i>Urgence
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content profile-tab-content">
+                    <!-- Identity Tab -->
+                    <div class="tab-pane show active" id="identity">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Nom complet</label>
+                                        <input type="text" class="form-control" value="Jean Dupont">
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                
-                                    <!-- Form -->
-                                    <form>
-                                        <div class="row form-group">
-                                            <label for="name" class="col-sm-3 col-form-label input-label">Name</label>
-                                            <div class="col-sm-9">
-                                                <div class="d-flex align-items-center">
-                                                    <label class="avatar avatar-xxl profile-cover-avatar m-0" for="edit_img">
-                                                        <img id="avatarImg" class="avatar-img" src="assets/img/profiles/avatar-02.jpg" alt="Profile Image">
-                                                        <input type="file" id="edit_img">
-                                                        <span class="avatar-edit">
-                                                            <i  class="fas fa-edit avatar-uploader-icon shadow-soft"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="name" class="col-sm-3 col-form-label input-label">Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="name" placeholder="Your Name" value="Charles Hafner">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="email" class="col-sm-3 col-form-label input-label">Email</label>
-                                            <div class="col-sm-9">
-                                                <input type="email" class="form-control" id="email" placeholder="Email" value="charleshafner@example.com">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="phone" class="col-sm-3 col-form-label input-label">Phone <span class="text-muted">(Optional)</span></label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="phone" placeholder="+x(xxx)xxx-xx-xx" value="+1 (304) 499-13-66">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="location" class="col-sm-3 col-form-label input-label">Location</label>
-                                            <div class="col-sm-9">
-                                                <div class="mb-3">
-                                                    <input type="text" class="form-control" id="location" placeholder="Country" value="United States">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <input type="text" class="form-control" placeholder="City" value="Charleston">
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="State" value="West Virginia">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="addressline1" class="col-sm-3 col-form-label input-label">Address line 1</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="addressline1" placeholder="Your address" value="2681  Columbia Mine Road">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="addressline2" class="col-sm-3 col-form-label input-label">Address line 2 <span class="text-muted">(Optional)</span></label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="addressline2" placeholder="Your address">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="zipcode" class="col-sm-3 col-form-label input-label">Zip code</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="zipcode" placeholder="Your zip code" value="25301">
-                                            </div>
-                                        </div>
-                                        <div class="text-end">
-                                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                                        </div>
-                                    </form>
-                                    <!-- /Form -->
-                                    
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Paroisse</label>
+                                        <input type="text" class="form-control" value="Paroisse Saint-Michel">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Date de naissance</label>
+                                        <div class="cal-icon">
+                                            <input type="text" class="form-control datetimepicker" value="24/07/1983">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Date de baptême</label>
+                                        <div class="cal-icon">
+                                            <input type="text" class="form-control datetimepicker" value="15/06/2005">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Notes personnelles</label>
+                                        <textarea class="form-control" rows="3">Allergies: aucune</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Contact Tab -->
+                    <div class="tab-pane" id="contact">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            <input type="email" class="form-control" value="jean.dupont@example.com">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Téléphone</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <input type="text" class="form-control" value="+33 6 12 34 56 78">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Adresse</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                            <input type="text" class="form-control" value="15 rue des Fleurs">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Ville</label>
+                                        <input type="text" class="form-control" value="Paris">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Code postal</label>
+                                        <input type="text" class="form-control" value="75001">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Pays</label>
+                                        <select class="form-select">
+                                            <option value="france" selected>France</option>
+                                            <option value="belgique">Belgique</option>
+                                            <option value="suisse">Suisse</option>
+                                            <option value="canada">Canada</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                                
+                    <!-- Ministry Tab -->
+                    <div class="tab-pane" id="ministry">
+                                    <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Ministères et engagements</label>
+                                        <div class="ministry-checkboxes">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input type="checkbox" class="form-check-input" id="ministry1" checked>
+                                                        <label class="form-check-label" for="ministry1">Groupe de prière</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input type="checkbox" class="form-check-input" id="ministry2" checked>
+                                                        <label class="form-check-label" for="ministry2">Chorale</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input type="checkbox" class="form-check-input" id="ministry3" checked>
+                                                        <label class="form-check-label" for="ministry3">Catéchisme</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input type="checkbox" class="form-check-input" id="ministry4">
+                                                        <label class="form-check-label" for="ministry4">Accueil</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input type="checkbox" class="form-check-input" id="ministry5">
+                                                        <label class="form-check-label" for="ministry5">Jeunesse</label>
+                                            </div>
+                                        </div>
+                                                <div class="col-md-4">
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input type="checkbox" class="form-check-input" id="ministry6">
+                                                        <label class="form-check-label" for="ministry6">Solidarité</label>
+                                            </div>
+                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Disponibilités</label>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="form-check-input" id="day1" checked>
+                                                    <label class="form-check-label" for="day1">Lundi</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="form-check-input" id="day2">
+                                                    <label class="form-check-label" for="day2">Mardi</label>
+                                        </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="form-check-input" id="day3" checked>
+                                                    <label class="form-check-label" for="day3">Mercredi</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="form-check-input" id="day4">
+                                                    <label class="form-check-label" for="day4">Jeudi</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="form-check-input" id="day5">
+                                                    <label class="form-check-label" for="day5">Vendredi</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="form-check-input" id="day6" checked>
+                                                    <label class="form-check-label" for="day6">Samedi</label>
+                                        </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="form-check-input" id="day7" checked>
+                                                    <label class="form-check-label" for="day7">Dimanche</label>
+                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Emergency Tab -->
+                    <div class="tab-pane" id="emergency">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Nom du contact d'urgence</label>
+                                        <input type="text" class="form-control" value="Marie Dupont">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Relation</label>
+                                        <select class="form-select">
+                                            <option value="conjoint">Conjoint(e)</option>
+                                            <option value="parent" selected>Parent</option>
+                                            <option value="enfant">Enfant</option>
+                                            <option value="ami">Ami(e)</option>
+                                            <option value="autre">Autre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Téléphone principal</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <input type="text" class="form-control" value="+33 6 98 76 54 32">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Téléphone secondaire</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <input type="text" class="form-control" placeholder="Optionnel">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Informations médicales importantes</label>
+                                        <textarea class="form-control" rows="3" placeholder="Allergies, médicaments, conditions médicales..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="profile-actions mt-3 text-end">
+                    <button type="button" class="btn btn-danger">
+                        Enregistrer les modifications
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+:root {
+    --primary-color: #5e72e4;
+    --success-color: #2dce89;
+    --danger-color: #dc3545;
+    --border-color: #e9ecef;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+/* Profile Card */
+.profile-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0;
+}
+
+.profile-card .card-header {
+    background-color: #fff;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-img-container {
+    position: relative;
+}
+
+.profile-img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-img-edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.profile-img-edit:hover {
+    background-color: #4a5bd9;
+}
+
+/* Tab Styles */
+.nav-tabs-solid {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.nav-tabs-solid .nav-link {
+    color: #6c757d;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border: none;
+    transition: 0.3s;
+}
+
+.nav-tabs-solid .nav-link.active {
+    color: var(--primary-color);
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs-solid .nav-link:hover:not(.active) {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Tab Content */
+.profile-tab-content {
+    padding: 1rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    border-color: #ddd;
+    border-radius: 0.375rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.15);
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border-color: #ddd;
+}
+
+/* Calendar Icon */
+.cal-icon {
+    position: relative;
+}
+
+.cal-icon:after {
+    content: "\f073";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #adb5bd;
+    font-size: 14px;
+}
+
+.cal-icon .form-control {
+    padding-right: 40px;
+}
+
+/* Ministry Checkboxes */
+.ministry-checkboxes {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+/* Form Actions */
+.profile-actions {
+    padding: 1rem 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    font-weight: 500;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Responsive Styles */
+@media (max-width: 767.98px) {
+    .profile-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .nav-tabs-solid .nav-link {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .profile-actions {
+        flex-direction: column;
+    }
+    
+    .profile-actions .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .profile-actions .btn-light {
+        margin-left: 0 !important;
+    }
+}
+</style>

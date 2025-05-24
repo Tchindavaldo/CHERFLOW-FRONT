@@ -1,0 +1,160 @@
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="page-title">Nouveau Rendez-vous</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="'/index'">Dashboard</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="'/rendezvous/list'">Rendez-vous</a></li>
+            <li class="breadcrumb-item active">Nouveau</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body" style="padding-top: 10px; padding-bottom: 10px;">
+            <form [formGroup]="rendezVousForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Nom du Contact<span class="mandatory">*</span></label>
+                            <div>
+                              <input type="text" class="form-control" formControlName="nomContact" [ngClass]="{'is-invalid': nomContact?.invalid && nomContact?.touched}">
+                              <div *ngIf="nomContact?.invalid && nomContact?.touched" class="invalid-feedback">
+                                Le nom du contact est requis
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Email<span class="mandatory">*</span></label>
+                            <div>
+                              <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': email?.invalid && email?.touched}">
+                              <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+                                <span *ngIf="email?.errors?.['required']">L'email est requis</span>
+                                <span *ngIf="email?.errors?.['email']">Format d'email invalide</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                          <div class="form-group">
+                            <label>Téléphone<span class="mandatory">*</span></label>
+                            <input type="tel" class="form-control" formControlName="telephone" [ngClass]="{'is-invalid': telephone?.invalid && telephone?.touched}">
+                            <div *ngIf="telephone?.invalid && telephone?.touched" class="invalid-feedback">
+                              Le numéro de téléphone est requis
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Date<span class="mandatory">*</span></label>
+                            <input type="date" class="form-control" formControlName="date" [ngClass]="{'is-invalid': date?.invalid && date?.touched}">
+                            <div *ngIf="date?.invalid && date?.touched" class="invalid-feedback">
+                              La date est requise
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Heure<span class="mandatory">*</span></label>
+                            <div class="cal-icon">
+                              <input type="time" class="form-control" formControlName="heure" [ngClass]="{'is-invalid': heure?.invalid && heure?.touched}">
+                              <div *ngIf="heure?.invalid && heure?.touched" class="invalid-feedback">
+                                L'heure est requise
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Statut<span class="mandatory">*</span></label>
+                            <div class="cal-icon">
+                              <select class="form-select" formControlName="statut" [ngClass]="{'is-invalid': statut?.invalid && statut?.touched}">
+                                <option value="En attente">En attente</option>
+                                <option value="Confirmé">Confirmé</option>
+                                <option value="Annulé">Annulé</option>
+                              </select>
+                              <div *ngIf="statut?.invalid && statut?.touched" class="invalid-feedback">
+                                Le statut est requis
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Notes -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="form-group">
+                        <label>Notes</label>
+                        <textarea class="form-control" rows="4" formControlName="notes"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-end mt-4">
+                <a [routerLink]="'/rendezvous/list'" class="btn btn-secondary me-2">Annuler</a>
+                <button type="submit" class="btn btn-primary" [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                  Enregistrer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Page Wrapper -->
+
+<style>
+  .mandatory {
+    color: red;
+    margin-left: 2px;
+  }
+  .card {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: none;
+  }
+  .card-body {
+    padding: 1.5rem;
+  }
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  .invalid-feedback {
+    display: block;
+    margin-top: 0.25rem;
+  }
+</style>

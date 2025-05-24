@@ -1,27 +1,26 @@
 <!-- Page Wrapper -->
             <div class="page-wrapper">
                 <div class="content container-fluid">
-
                     <div class="row justify-content-lg-center">
                         <div class="col-lg-10">
-
                             <!-- Page Header -->
                             <div class="page-header">
                                 <div class="row">
                                     <div class="col">
-                                        <h3 class="page-title">Profile</h3>
+                            <h3 class="page-title">Mon Profil</h3>
                                         <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a [routerLink]="'/index'">Dashboard</a></li>
-                                            <li class="breadcrumb-item active">Profile</li>
+                                <li class="breadcrumb-item"><a [routerLink]="'/index'">Tableau de bord</a></li>
+                                <li class="breadcrumb-item active">Mon Profil</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <!-- /Page Header -->
 
-                            <div class="profile-cover">
+                <!-- Profile Banner -->
+                <div class="profile-banner">
                                 <div class="profile-cover-wrap">
-                                    <img class="profile-cover-img" src="assets/img/profiles/avatar-02.jpg" alt="Profile Cover">
+                        <img class="profile-cover-img" src="assets/img/profiles/church-cover.jpg" alt="Couverture du profil">
 
                                     <!-- Custom File Cover -->
                                     <div class="cover-content">
@@ -29,144 +28,820 @@
                                             <input type="file" class="custom-file-btn-input" id="cover_upload">
                                             <label class="custom-file-btn-label btn btn-sm btn-white" for="cover_upload">
                                                 <i class="fas fa-camera"></i>
-                                                <span class="d-none d-sm-inline-block ms-1">Update Cover</span>
+                                    <span class="d-none d-sm-inline-block ms-1">Modifier la couverture</span>
                                             </label>
                                         </div>
                                     </div>
                                     <!-- /Custom File Cover -->
                                 </div>
                             </div>
+                <!-- /Profile Banner -->
 
-                            <div class="text-center mb-5">
+                <!-- Profile Main Section -->
+                <div class="profile-main">
+                    <!-- Profile Info Card -->
+                    <div class="profile-info-card">
+                        <div class="profile-avatar-section">
                                 <label class="avatar avatar-xxl profile-cover-avatar" for="avatar_upload">
-                                    <img class="avatar-img" src="assets/img/profiles/avatar-02.jpg" alt="Profile Image">
+                                <img class="avatar-img" src="assets/img/profiles/avatar-02.jpg" alt="Photo de profil">
                                     <input type="file" id="avatar_upload">
                                     <span class="avatar-edit">
                                         <i class="fas fa-edit avatar-uploader-icon shadow-soft"></i>
                                     </span>
                                 </label>
-                                <h2>Charles Hafner <i class="fas fa-certificate text-primary small" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Verified"></i></h2>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <i class="far fa-building"></i> <span>Hafner Pvt Ltd.</span>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <i class="fas fa-map-marker-alt"></i> West Virginia, US
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <i class="far fa-calendar-alt"></i> <span>Joined November 2017</span>
-                                    </li>
-                                </ul>
+                            <h2 class="profile-name">Jean Dupont 
+                                <i class="fas fa-check-circle text-primary small" data-bs-toggle="tooltip" data-placement="top" title="Compte vérifié"></i>
+                            </h2>
+                            <div class="profile-role">Responsable du groupe de prière</div>
+                            <div class="profile-badges">
+                                <span class="badge bg-soft-primary text-primary"><i class="fas fa-pray"></i> Leader spirituel</span>
+                                <span class="badge bg-soft-success text-success"><i class="fas fa-music"></i> Choriste</span>
+                                <span class="badge bg-soft-info text-info"><i class="fas fa-book-reader"></i> Catéchiste</span>
+                            </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="card card-body">
-                                        <h5>Complete your profile</h5>
+                        <div class="profile-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-church text-primary"></i>
+                                <span>Paroisse Saint-Michel</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt text-danger"></i>
+                                <span>Paris, France</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="far fa-calendar-alt text-success"></i>
+                                <span>Membre depuis Septembre 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Profile Info Card -->
 
-                                        <!-- Progress -->
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="progress progress-md flex-grow-1">
-                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            <span class="ms-4">30%</span>
-                                        </div>
-                                        <!-- /Progress -->
+                    <div class="row mt-4">
+                                <div class="col-lg-4">
+                            <!-- Profile Completion Card -->
+                            <div class="card completion-card">
+                                <div class="card-body">
+                                    <div class="completion-header">
+                                        <h5>Compléter votre profil</h5>
+                                        <div class="completion-percentage">60%</div>
                                     </div>
 
-                                    <div class="card">
+                                        <!-- Progress -->
+                                    <div class="progress progress-md">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <!-- /Progress -->
+                                    
+                                    <div class="completion-tasks mt-3">
+                                        <div class="task-item completed">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span>Informations personnelles</span>
+                                        </div>
+                                        <div class="task-item completed">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span>Informations de contact</span>
+                                        </div>
+                                        <div class="task-item">
+                                            <i class="fas fa-circle text-muted"></i>
+                                            <span>Ajouter une photo de profil</span>
+                                            </div>
+                                        <div class="task-item">
+                                            <i class="fas fa-circle text-muted"></i>
+                                            <span>Compléter votre témoignage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Profile Completion Card -->
+
+                            <!-- Personal Info Card -->
+                            <div class="card personal-info-card">
                                         <div class="card-header">
                                             <h5 class="card-title d-flex justify-content-between">
-                                                <span>Profile</span>
-                                                <a class="btn btn-sm btn-white" [routerLink]="'/setting/settings'">Edit</a>
+                                        <span>Informations personnelles</span>
+                                        <a class="btn btn-sm btn-primary" [routerLink]="'/setting/settings'">
+                                            <i class="fas fa-edit me-1"></i>Modifier
+                                        </a>
                                             </h5>
                                         </div>
                                         <div class="card-body">
                                             <ul class="list-unstyled mb-0">
                                                 <li class="py-0">
-                                                    <small class="text-dark">About</small>
+                                            <small class="section-label">À propos</small>
+                                        </li>
+                                        <li class="info-detail">
+                                            <span>Jean Dupont</span>
+                                        </li>
+                                        <li class="info-detail">
+                                            <span>Responsable du groupe de prière</span>
+                                        </li>
+                                        <li class="pt-3 pb-0">
+                                            <small class="section-label">Contacts</small>
+                                        </li>
+                                        <li class="info-detail">
+                                            <span>jean.dupont&#64;example.com</span>
                                                 </li>
-                                                <li>
-                                                    Charles Hafner
+                                        <li class="info-detail">
+                                            <span>+33 6 12 34 56 78</span>
                                                 </li>
-                                                <li>
-                                                    Hafner Pvt Ltd.
+                                        <li class="pt-3 pb-0">
+                                            <small class="section-label">Ministères</small>
                                                 </li>
-                                                <li class="pt-2 pb-0">
-                                                    <small class="text-dark">Contacts</small>
+                                        <li class="info-detail ministry">
+                                            <span><i class="fas fa-pray text-primary me-2"></i>Groupe de prière</span>
                                                 </li>
-                                                <li>
-                                                    charleshafner@example.com
+                                        <li class="info-detail ministry">
+                                            <span><i class="fas fa-music text-success me-2"></i>Chorale</span>
                                                 </li>
-                                                <li>
-                                                    +1 (304) 499-13-66
+                                        <li class="info-detail ministry">
+                                            <span><i class="fas fa-book-reader text-info me-2"></i>Catéchisme</span>
                                                 </li>
-                                                <li class="pt-2 pb-0">
-                                                    <small class="text-dark">Address</small>
+                                        <li class="pt-3 pb-0">
+                                            <small class="section-label">Adresse</small>
                                                 </li>
-                                                <li>
-                                                    4663  Agriculture Lane,<br>
-                                                    Miami,<br>
-                                                    Florida - 33165,<br>
-                                                    United States.
+                                        <li class="info-detail address">
+                                            <i class="fas fa-home text-muted me-2"></i>
+                                            <span>
+                                                15 rue des Fleurs<br>
+                                                75001 Paris<br>
+                                                France
+                                            </span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-
+                            <!-- /Personal Info Card -->
                                 </div>
 
                                 <div class="col-lg-8">
-                                    <div class="card">
+                            <!-- Activity Timeline Card -->
+                            <div class="card activity-card">
                                         <div class="card-header">
-                                            <h5 class="card-title">Activity</h5>
+                                    <h5 class="card-title">
+                                        <i class="fas fa-history me-2"></i>Activités récentes
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="activity-timeline">
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-primary">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">25 Mai</div>
+                                                <div class="activity-text">
+                                                    <span class="text-primary">Vous</span> avez confirmé votre participation à l'événement <a [routerLink]="'/evenement/view-estimates/3'" class="event-link">"Retraite spirituelle"</a>
+                                                </div>
                                         </div>
-                                        <div class="card-body card-body-height">
-                                            <ul class="activity-feed">
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Nov 16</div>
-                                                    <span class="feed-text"><a [routerLink]="'/profile'">Brian Johnson</a> has paid the invoice <a [routerLink]="'/invoices/view-invoice'">"#DF65485"</a></span>
                                                 </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Nov 7</div>
-                                                    <span class="feed-text"><a [routerLink]="'/profile'">Marie Canales</a>  has accepted your estimate <a [routerLink]="'/view-estimate'">#GTR458789</a></span>
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-success">
+                                                <i class="fas fa-user-plus"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">18 Mai</div>
+                                                <div class="activity-text">
+                                                    <span class="text-success">Marie Lambert</span> vous a ajouté au groupe de prière <a [routerLink]="'/communication/bulletins'" class="event-link">"Groupe Saint-Jean"</a>
+                                                </div>
+                                            </div>
                                                 </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Oct 24</div>
-                                                    <span class="feed-text">New expenses added <a [routerLink]="'/expenses/expenses-list'">"#TR018756</a></span>
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-warning">
+                                                <i class="fas fa-donate"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">12 Mai</div>
+                                                <div class="activity-text">
+                                                    Vous avez fait un don pour la <a [routerLink]="'/finance/suivis'" class="event-link">"Collecte de Pentecôte"</a>
+                                                </div>
+                                            </div>
                                                 </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Oct 24</div>
-                                                    <span class="feed-text">New expenses added <a [routerLink]="'/expenses/expenses-list'">"#TR018756</a></span>
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-info">
+                                                <i class="fas fa-church"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">5 Mai</div>
+                                                <div class="activity-text">
+                                                    Vous avez participé à l'événement <a [routerLink]="'/evenement/view-estimates/2'" class="event-link">"Messe des familles"</a>
+                                                </div>
+                                            </div>
                                                 </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Oct 24</div>
-                                                    <span class="feed-text">New expenses added <a [routerLink]="'/expenses/expenses-list'">"#TR018756</a></span>
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-secondary">
+                                                <i class="far fa-calendar-plus"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">30 Avr</div>
+                                                <div class="activity-text">
+                                                    Vous avez créé un nouveau rendez-vous <a [routerLink]="'/rendezvous/voir/RDV-001'" class="event-link">"Préparation baptême"</a>
+                                                </div>
+                                            </div>
                                                 </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Oct 24</div>
-                                                    <span class="feed-text">New expenses added <a [routerLink]="'/expenses/expenses-list'">"#TR018756</a></span>
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-danger">
+                                                <i class="fas fa-book-open"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">22 Avr</div>
+                                                <div class="activity-text">
+                                                    Vous avez participé à la formation <a [routerLink]="'/evenement/view-estimates/1'" class="event-link">"Lecture biblique"</a>
+                                                </div>
+                                            </div>
                                                 </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Oct 24</div>
-                                                    <span class="feed-text">New expenses added <a [routerLink]="'/expenses/expenses-list'">"#TR018756</a></span>
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-success">
+                                                <i class="fas fa-music"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">15 Avr</div>
+                                                <div class="activity-text">
+                                                    <span class="text-success">Pierre Martin</span> vous a ajouté comme responsable de la <a [routerLink]="'/evenement/estimates-list'" class="event-link">"Chorale du dimanche"</a>
+                                                </div>
+                                            </div>
                                                 </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Jan 27</div>
-                                                    <span class="feed-text"><a [routerLink]="'/profile'">Robert Martin</a> gave a review for <a [routerLink]="'/product-details'">"Dell Laptop"</a></span>
-                                                </li>
-                                                <li class="feed-item">
-                                                    <div class="feed-date">Jan 14</div>
-                                                    <span class="feed-text">New customer registered <a [routerLink]="'/profile'">"Tori Carter"</a></span>
+                                        <li class="activity-item">
+                                            <div class="activity-dot bg-primary">
+                                                <i class="fas fa-door-open"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-date">1 Avr</div>
+                                                <div class="activity-text">
+                                                    Vous avez rejoint la paroisse <a [routerLink]="'/profile'" class="event-link">"Saint-Michel"</a>
+                                                </div>
+                                            </div>
                                                 </li>
                                             </ul>
+                                    <div class="text-center mt-4">
+                                        <a href="javascript:void(0);" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-history me-1"></i>Voir toutes les activités
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Activity Timeline Card -->
+                            
+                            <!-- Upcoming Events Card -->
+                            <div class="card events-card mt-4">
+                                <div class="card-header">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-calendar me-2"></i>Événements à venir
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="event-item">
+                                                <div class="event-date">
+                                                    <span class="event-day">15</span>
+                                                    <span class="event-month">Juin</span>
+                                                </div>
+                                                <div class="event-details">
+                                                    <h6 class="event-title">Retraite spirituelle</h6>
+                                                    <p class="event-location"><i class="fas fa-map-marker-alt me-1"></i>Abbaye Saint-Martin</p>
+                                                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">Détails</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="event-item">
+                                                <div class="event-date">
+                                                    <span class="event-day">22</span>
+                                                    <span class="event-month">Juin</span>
+                                                </div>
+                                                <div class="event-details">
+                                                    <h6 class="event-title">Messe des familles</h6>
+                                                    <p class="event-location"><i class="fas fa-map-marker-alt me-1"></i>Église Saint-Michel</p>
+                                                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">Détails</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- /Upcoming Events Card -->
                         </div>
                     </div>
                 </div>
-
+                <!-- /Profile Main Section -->
+            </div>
+        </div>
+    </div>
             </div>
             <!-- /Page Wrapper -->
+
+<style>
+/* Colors */
+:root {
+    --primary: #5e72e4;
+    --primary-light: #eaedfc;
+    --secondary: #6c757d;
+    --success: #2dce89;
+    --info: #11cdef;
+    --warning: #fb6340;
+    --danger: #f5365c;
+    --light: #f8f9fa;
+    --dark: #344767;
+    --white: #ffffff;
+}
+
+/* General Styles */
+.page-wrapper {
+    background-color: #f5f7fb;
+}
+
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb {
+    background: transparent;
+}
+
+.breadcrumb-item a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 20px 25px;
+    border-radius: 15px 15px 0 0 !important;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    font-weight: 600;
+    margin: 0;
+    color: var(--dark);
+}
+
+/* Profile Banner */
+.profile-banner {
+    position: relative;
+    margin-bottom: -70px;
+}
+
+.profile-cover-wrap {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-content {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.custom-file-btn-label {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    padding: 8px 15px;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.custom-file-btn-label:hover {
+    background: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Main Section */
+.profile-main {
+    position: relative;
+    padding-top: 70px;
+}
+
+/* Profile Info Card */
+.profile-info-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar-section {
+    margin-bottom: 20px;
+}
+
+.avatar-xxl {
+    width: 140px;
+    height: 140px;
+    margin: -100px auto 20px;
+    border: 5px solid var(--white);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: block;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-edit {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 32px;
+    height: 32px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.avatar-edit:hover {
+    background-color: var(--primary-light);
+}
+
+.avatar-uploader-icon {
+    color: var(--primary);
+    font-size: 14px;
+}
+
+.profile-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--dark);
+}
+
+.profile-role {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    padding: 8px 15px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border-radius: 50px;
+}
+
+.bg-soft-primary {
+    background-color: rgba(94, 114, 228, 0.1);
+}
+
+.bg-soft-success {
+    background-color: rgba(45, 206, 137, 0.1);
+}
+
+.bg-soft-info {
+    background-color: rgba(17, 205, 239, 0.1);
+}
+
+.profile-info-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary);
+}
+
+.info-item i {
+    font-size: 16px;
+}
+
+/* Completion Card */
+.completion-card {
+    overflow: hidden;
+}
+
+.completion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.completion-header h5 {
+    margin: 0;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.completion-percentage {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.progress {
+    height: 8px;
+    border-radius: 10px;
+    background-color: var(--primary-light);
+}
+
+.completion-tasks {
+    margin-top: 15px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.task-item.completed {
+    color: var(--success);
+}
+
+.task-item:not(.completed) {
+    color: var(--secondary);
+}
+
+/* Personal Info Card */
+.personal-info-card {
+    margin-top: 20px;
+}
+
+.section-label {
+    color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.info-detail {
+    padding: 8px 0;
+    color: var(--dark);
+}
+
+.ministry span {
+    display: flex;
+    align-items: center;
+}
+
+.address {
+    display: flex;
+    align-items: flex-start;
+}
+
+.address i {
+    margin-top: 3px;
+}
+
+/* Activity Timeline */
+.activity-card {
+    overflow: hidden;
+}
+
+.activity-timeline {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.activity-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 18px;
+    width: 2px;
+    background-color: #e9ecef;
+}
+
+.activity-item {
+    position: relative;
+    padding-left: 45px;
+    padding-bottom: 25px;
+}
+
+.activity-item:last-child {
+    padding-bottom: 0;
+}
+
+.activity-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 14px;
+}
+
+.activity-content {
+    padding-top: 3px;
+}
+
+.activity-date {
+    color: var(--secondary);
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+}
+
+.activity-text {
+    color: var(--dark);
+    line-height: 1.5;
+}
+
+.text-primary, .text-success {
+    font-weight: 600;
+}
+
+.event-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.event-link:hover {
+    text-decoration: underline;
+}
+
+/* Upcoming Events */
+.events-card {
+    overflow: hidden;
+}
+
+.event-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--light);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background-color: var(--white);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    padding: 8px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.event-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.event-month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-title {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.event-location {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #4a5bd9;
+    border-color: #4a5bd9;
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .profile-info-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .event-item {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .profile-cover-wrap {
+        height: 180px;
+    }
+    
+    .avatar-xxl {
+        width: 120px;
+        height: 120px;
+        margin-top: -80px;
+    }
+    
+    .profile-info-card {
+        padding: 20px 15px;
+    }
+    
+    .profile-name {
+        font-size: 1.5rem;
+    }
+    
+    .activity-item {
+        padding-left: 40px;
+    }
+    
+    .activity-dot {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+</style>
